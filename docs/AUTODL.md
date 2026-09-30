@@ -2,6 +2,8 @@
 
 **目前只想做到训练之前：请执行 [训练前准备](BEFORE_TRAINING.md)，不要执行本页的 smoke/train 命令。** 新的公共数据准备入口包含独立 study 划分和 tokenizer 检查；以下是后续完整训练的通用说明。
 
+已完成准备和 GPU runtime 检查、但 AutoDL 无法访问 Hugging Face 时，按 [固定权重与离线 Qwen smoke](QWEN_SMOKE.md) 操作；该入口下载匹配固定 HF revision 的官方 ModelScope 文件，复用现有模型 smoke，并在正式训练前停止。
+
 ## 1. 获取代码与检测环境
 
 还未成功 clone 或尚无公共数据时，先按 [JupyterLab 公共数据起步](PUBLIC_PILOT.md) 操作。该数值 pilot 无需 GPU；以下 GPU 训练流程只用于独立 study 数据划分齐备后的正式配置。
