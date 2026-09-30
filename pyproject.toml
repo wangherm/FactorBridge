@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "factorbridge"
+version = "0.1.0"
+description = "Stage 1: evidence-guided numerical factor recovery"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26,<3"]
+
+[project.optional-dependencies]
+train = ["torch>=2.4,<3", "transformers>=4.51,<5", "peft>=0.15,<1", "accelerate>=1.2,<2", "bitsandbytes>=0.45,<1", "huggingface-hub>=0.30,<1", "safetensors>=0.5,<1"]
+
+[project.scripts]
+factorbridge = "factorbridge.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["factorbridge*"]

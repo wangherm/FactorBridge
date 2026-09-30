@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.env
+work/
+outputs/
+data/
+runs/
+*.npz
+*.npy
+*.safetensors
+*.pt
+*.zip
+*.log
+configs/*.local.json
