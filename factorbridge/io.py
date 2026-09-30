@@ -50,6 +50,10 @@ def config(path):
     c = read_json(path)
     if c["stage"] not in {"noise_recovery", "cross_species_identity"}:
         raise ValueError("Only Stage 1 and explicitly requested Stage 2 are implemented")
+    if c.get("reference_mode") not in {None, "legacy_sparse_v1", "dense_identity_sparse_refit_v2"}:
+        raise ValueError("Unknown reference mode")
+    if c.get("reference_mode") == "dense_identity_sparse_refit_v2" and not 0 <= c.get("reference_gene_recurrence", -1) <= 1:
+        raise ValueError("Explicit reference_gene_recurrence in [0,1] required")
     if c["rank"] < 1 or c["rank"] > 12:
         raise ValueError("rank must be in 1..12 for this small-rank pilot")
     if not 0 < c["local_holdout_fraction"] < 0.5:
@@ -69,7 +73,7 @@ def config(path):
 
 def environment():
     packages = {}
-    for name in ["numpy", "torch", "transformers", "peft", "accelerate", "bitsandbytes", "huggingface-hub"]:
+    for name in ["numpy", "torch", "transformers", "peft", "accelerate", "bitsandbytes", "huggingface-hub", "tokenizers", "jinja2", "xlrd"]:
         try:
             packages[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:

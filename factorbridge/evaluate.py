@@ -103,7 +103,15 @@ def freeze(c, baseline_only=False):
     for p in [run / "non_llm.json", *sorted((run / "training").rglob("*"))]:
         if p.is_file():
             artifact_hashes[str(p.relative_to(run))] = sha256(p)
+    data_files = {}
+    if c.get("defer_public_test"):
+        from .data import manifest
+        data_files[str(Path(c["manifest"]).resolve())] = sha256(c["manifest"])
+        for e in manifest(c["manifest"]):
+            for field in ("matrix_path", "metadata_path"):
+                data_files[e[field]] = sha256(e[field])
     write_json(path, {"config": c, "config_hash": digest(c), "code_hash": code_hash(), "artifacts": artifact_hashes,
+               "data_files": data_files,
                "prepared_index_hash": sha256(run / "prepared/index.json"), "baseline_only": baseline_only,
                "validation_report_sha256": sha256(run / "evaluation_validation/report.json"),
                "global_rules": "frozen; internal discovery remains local and unsupervised"})
@@ -121,6 +129,9 @@ def check_frozen(c, methods):
     for p, expected in frozen["artifacts"].items():
         if sha256(run / p) != expected:
             raise ValueError(f"Frozen artifact changed: {p}")
+    for p, expected in frozen.get("data_files", {}).items():
+        if sha256(p) != expected:
+            raise ValueError(f"Frozen data changed: {p}")
     if frozen["baseline_only"] and any(m.startswith("qwen") for m in methods):
         raise ValueError("Baseline-only protocol cannot be extended after test access")
 
@@ -177,7 +188,7 @@ def evaluate(c, split="validation", methods=None, regression_adapter=None, regre
         raise ValueError("Stage 2 regression may only use Stage 1 public validation")
     if split == "validation" and (run / "frozen_protocol.json").exists() and regression_adapter is None:
         raise ValueError("Validation is frozen; start a new experiment for new rules")
-    root, index = prepared(c, internal=split == "internal_test")
+    root, index = prepared(c, internal=split == "internal_test", public_test=split == "test" and c.get("defer_public_test", False))
     out = Path(regression_output) if regression_output else run / (f"evaluation_{split}" if regression_adapter is None else "stage2_regression_validation")
     if out.exists():
         raise FileExistsError("Evaluation output exists; preserve it and use a new run for changes")

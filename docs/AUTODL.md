@@ -1,5 +1,7 @@
 # AutoDL 运行说明
 
+**目前只想做到训练之前：请执行 [训练前准备](BEFORE_TRAINING.md)，不要执行本页的 smoke/train 命令。** 新的公共数据准备入口包含独立 study 划分和 tokenizer 检查；以下是后续完整训练的通用说明。
+
 ## 1. 获取代码与检测环境
 
 还未成功 clone 或尚无公共数据时，先按 [JupyterLab 公共数据起步](PUBLIC_PILOT.md) 操作。该数值 pilot 无需 GPU；以下 GPU 训练流程只用于独立 study 数据划分齐备后的正式配置。
@@ -38,7 +40,7 @@ python -m factorbridge smoke --config configs/stage1.local.json
 python -m factorbridge train --config configs/stage1.local.json
 ```
 
-先 pin 模型 revision，再 prepare，避免配置改变使 prepared hash 失效。若 tokenizer 报超长，明确缩小 `card_genes` 并新建 run；若 GPU OOM，调整 batch 并新建 run。不得修改错误日志或假造 passed 文件。
+先 pin 模型 revision，再 prepare，避免配置改变使 prepared hash 失效。若 tokenizer 报超长，审核 token 长度与可用显存，显式修改上下文长度或证据卡大小后新建 run；若 GPU OOM，调整 batch 并新建 run。不得修改错误日志或假造 passed 文件。
 
 ## 3. 公平评估
 
@@ -46,6 +48,8 @@ python -m factorbridge train --config configs/stage1.local.json
 python -m factorbridge evaluate --config configs/stage1.local.json --split validation \
   --methods pca_raw loading_refit stability non_llm qwen_frozen qwen_finetuned
 python -m factorbridge freeze --config configs/stage1.local.json
+# 仅当配置启用 defer_public_test 时，冻结后先运行：
+# python -m factorbridge prepare-public-test --config configs/stage1.local.json
 python -m factorbridge evaluate --config configs/stage1.local.json --split test \
   --methods pca_raw loading_refit stability non_llm qwen_frozen qwen_finetuned
 ```

@@ -2,7 +2,7 @@
 
 从 noisy expression 中恢复可复核的 biological factors，并研究跨物种 factor identity。
 
-**当前状态：工程实现与受控模拟测试；没有执行真实 Qwen GPU 训练，也没有已训练 adapter 或生物学增益结论。**
+**当前状态：工程实现、受控模拟测试与真实公共数据的训练前准备；没有执行真实 Qwen GPU 训练，也没有已训练 adapter 或生物学增益结论。**
 
 本仓库按 2026-09-30 的交接要求启动。用户随后明确增加了第二阶段和多教师对比/蒸馏；因此当前范围是 Stage 1 + Stage 2。跨平台、跨分辨率训练、统一 graph、RL、agent、自动教师路由均不实现。
 
@@ -36,6 +36,8 @@ Stage 1 adapter 完成并通过 GPU smoke test 后，才继续跨物种 SFT。�
 - 只在公开 validation 上选择实验，且检查恢复退化与无效输出率。可按 species pair / relation 看各教师的强项，不建立自动 router。
 
 ## 快速使用
+
+已完成单研究 pilot、准备下一步时，请用 [训练前准备](docs/BEFORE_TRAINING.md)：下载三个独立 study、固定 train/validation/reserved-test、生成弱监督 SFT、检查实际 Qwen tokenizer，并在模型加载与训练之前停止。该批只有小规模真实弱参考，不能作为完整混杂识别或跨物种训练集。
 
 首次在 AutoDL/JupyterLab 获取代码，或先下载真实公共数据，请从 [公共数据起步](docs/PUBLIC_PILOT.md) 开始。仓库已公开，HTTPS clone/pull 无需账号或密码。已提供经过文件哈希校验的 GSE124109 下载/转换脚本，以及明确隔离的单研究数值试跑。
 

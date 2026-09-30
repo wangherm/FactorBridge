@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy as np
 
 from .data import manifest, load_dataset, local_split, preprocess, ROLES, assert_lineage
-from .factors import candidates, card
+from .factors import candidates, card, refit
 from .io import read_jsonl, write_json, write_jsonl, digest, sha256
 
 
@@ -100,7 +100,7 @@ def noise_view(raw, scale, discovery, level, missing_fraction, rng):
     return noisy[:, measured], measured, operator
 
 
-def label(candidate, indices, measured_indices, loading, truth_w, axes, source, c):
+def label(candidate, indices, measured_indices, loading, truth_w, axes, source, c, matching_w=None):
     answer = {"decision": "uncertain", "supported_gene_slots": [], "axis_flags": [], "evidence_ids": [], "limitations": ["insufficient_support"]}
     status = "controlled_truth" if source == "controlled_simulation" else "real_weak_reference"
     if truth_w.shape[1] == 0:
@@ -108,8 +108,13 @@ def label(candidate, indices, measured_indices, loading, truth_w, axes, source, 
             answer.update(decision="reject_null", limitations=["controlled_null"])
         return answer, {"label_source": status, "matched_reference": None, "gene_supervision": "complete" if source == "controlled_simulation" else "positive_unlabeled"}
     restricted = truth_w[measured_indices]
-    norms = np.linalg.norm(restricted, axis=0)
-    sims = np.abs(loading @ restricted) / np.maximum(norms, 1e-12)
+    # Factor identity is compared in the full measured space. Sparse support is a
+    # separate target; using it for dense-factor matching suppresses true matches.
+    matching = restricted if matching_w is None else matching_w[measured_indices]
+    if matching.shape != restricted.shape:
+        raise ValueError("Reference identity and support columns must align")
+    norms = np.linalg.norm(matching, axis=0)
+    sims = np.abs(loading @ matching) / np.maximum(norms * np.linalg.norm(loading), 1e-12)
     best = int(sims.argmax())
     flags = sorted(set(str(axes[j]) for j in np.flatnonzero(sims >= 0.35)))
     if sims[best] >= c["reference_similarity"]:
@@ -121,11 +126,32 @@ def label(candidate, indices, measured_indices, loading, truth_w, axes, source, 
         elif len(slots) >= c["min_support"]:
             answer.update(decision="retain", limitations=["weak_reference"] if status == "real_weak_reference" else [])
     return answer, {"label_source": status, "matched_reference": best,
-                    "reference_similarity": float(sims[best]), "gene_supervision": "complete" if source == "controlled_simulation" else "positive_unlabeled"}
+                    "reference_similarity": float(sims[best]), "matching_definition": "dense_identity" if matching_w is not None else "legacy_support",
+                    "gene_supervision": "complete" if source == "controlled_simulation" else "positive_unlabeled"}
 
 
-def prepare(c, internal=False):
-    root = Path(c["run_dir"]) / ("internal_prepared" if internal else "prepared")
+def weak_reference(clean_discovery, units, c, seed):
+    rw, _, mean, recurrence, stability = candidates(clean_discovery, units, c, seed)
+    selected = np.flatnonzero(stability >= c["reference_stability"])
+    ws, identity = [], []
+    for j in selected:
+        idx = np.argsort(-np.abs(rw[:, j]), kind="stable")[:c["card_genes"]]
+        idx = idx[recurrence[idx, j] >= c["reference_gene_recurrence"]]
+        if len(idx) < c["min_support"]:
+            continue
+        w, _, _, _ = refit(clean_discovery, clean_discovery[:0], idx, rw[:, j])
+        ws.append(w); identity.append(rw[:, j])
+    empty = np.zeros((clean_discovery.shape[1], 0))
+    return (np.column_stack(ws) if ws else empty, np.column_stack(identity) if identity else empty.copy(), mean)
+
+
+def prepare(c, internal=False, public_test=False):
+    if public_test:
+        if internal or not c.get("defer_public_test"):
+            raise ValueError("Explicit deferred public test configuration required")
+        from .evaluate import check_frozen
+        check_frozen(c, [])
+    root = Path(c["run_dir"]) / ("internal_prepared" if internal else "test_prepared" if public_test else "prepared")
     if root.exists():
         raise FileExistsError(f"Refusing to overwrite prepared lineage: {root}; use a new run_dir")
     entries = manifest(c["manifest"])
@@ -144,16 +170,23 @@ def prepare(c, internal=False):
     root.mkdir(parents=True)
     try:
         for number, e in enumerate(entries):
+            if c.get("defer_public_test") and not internal and ((e["role"] == "public_test") != public_test):
+                continue
             raw, genes, samples, meta = load_dataset(e)
             ds_seed = c["seed"] + number * 10007
             disc, held = local_split(meta, e["biological_unit_col"], c["local_holdout_fraction"], ds_seed)
             units = [r[e["biological_unit_col"]] for r in meta]
             clean = preprocess(raw, e["data_scale"])
+            matching_w = None
             if e["source_kind"] == "controlled_simulation":
                 with np.load(e["truth_path"], allow_pickle=False) as a:
                     tw, tz, axes = a["W"], a["Z"], a["axes"]
                 if tw.shape[0] != len(genes) or tz.shape != (len(samples), tw.shape[1]):
                     raise ValueError("Simulation truth dimensions do not match matrix")
+            elif c.get("reference_mode") == "dense_identity_sparse_refit_v2":
+                tw, matching_w, rmean = weak_reference(clean[disc], [units[i] for i in disc], c, ds_seed)
+                tz = (clean - rmean) @ tw
+                axes = np.array(["biological"] * tw.shape[1])
             else:
                 rw, _, rmean, rr, rs = candidates(clean[disc], [units[i] for i in disc], c, ds_seed)
                 selected = np.flatnonzero(rs >= c["reference_stability"])
@@ -167,7 +200,8 @@ def prepare(c, internal=False):
                 axes = np.array(["biological"] * len(selected))
             ds_key = f"d{number:04d}"
             (root / "private").mkdir(exist_ok=True)
-            np.savez_compressed(root / "private" / f"{ds_key}_reference.npz", W=tw, Z=tz, axes=axes, genes=genes)
+            extra = {"matching_W": matching_w} if matching_w is not None else {}
+            np.savez_compressed(root / "private" / f"{ds_key}_reference.npz", W=tw, Z=tz, axes=axes, genes=genes, **extra)
             for r, sample in enumerate(samples):
                 splits.append({"dataset_id": e["dataset_id"], "study_id": e["study_id"], "sample_id": str(sample), "biological_unit": units[r],
                                "split": ROLES[e["role"]], "local_role": "discovery" if r in disc else "heldout_projection"})
@@ -182,7 +216,7 @@ def prepare(c, internal=False):
                 for j in range(w.shape[1]):
                     eid = f"{view_id}_c{j:02d}"
                     evidence, idx = card(w[:, j], recur[:, j], stable[j], genes[measured], e, c)
-                    target, quality = label(evidence, idx, mw, w[:, j], tw, axes, e["source_kind"], c)
+                    target, quality = label(evidence, idx, mw, w[:, j], tw, axes, e["source_kind"], c, matching_w)
                     if e["source_kind"] != "controlled_simulation":
                         # Stability does not establish causal biology or absence of confounding.
                         target["axis_flags"] = []
@@ -204,8 +238,10 @@ def prepare(c, internal=False):
         write_jsonl(root / "splits.jsonl", splits)
         fingerprint = {str(p.relative_to(root)): sha256(p) for p in sorted(root.rglob("*")) if p.is_file()}
         write_json(root / "index.json", {"complete": True, "config_hash": digest(c), "files": fingerprint,
-                   "studies": len(entries), "units": sum(e["n_units"] for e in entries), "examples": len(cards),
-                   "source_kinds": sorted({e["source_kind"] for e in entries}), "stage": "noise_recovery"})
+                   "studies": len({r["study_id"] for r in sidecars}),
+                   "units": len({(r["study_id"], r["biological_unit"]) for r in splits}), "examples": len(cards),
+                   "source_kinds": sorted({e["source_kind"] for e in entries}), "stage": "noise_recovery",
+                   "public_test_deferred": bool(c.get("defer_public_test") and not public_test and not internal)})
     except Exception:
         write_json(root / "FAILED.json", {"complete": False, "message": "Preparation failed; incomplete outputs must not be used"})
         raise

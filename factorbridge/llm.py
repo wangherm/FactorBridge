@@ -13,8 +13,8 @@ from .contracts import encode_completion, messages, validate_output, SYSTEM
 from .io import read_json, read_jsonl, write_json, write_jsonl, digest, sha256, environment, code_hash, lock_environment
 
 
-def prepared(c, internal=False):
-    root = Path(c["run_dir"]) / ("internal_prepared" if internal else "prepared")
+def prepared(c, internal=False, public_test=False):
+    root = Path(c["run_dir"]) / ("internal_prepared" if internal else "test_prepared" if public_test else "prepared")
     index = read_json(root / "index.json")
     if not index["complete"] or index["config_hash"] != digest(c):
         raise ValueError("Prepared configuration changed; create a new run, do not relabel old data")

@@ -12,7 +12,7 @@ from .io import config, read_json, write_json, environment
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="FactorBridge recovery and cross-species training; no missing-data or CPU-Qwen fallback")
-    parser.add_argument("command", choices=["environment", "audit", "supervision-audit", "simulate", "prepare", "prepare-internal", "baselines", "pin-model", "smoke", "train", "evaluate", "freeze", "import-protein-tokens", "export-factor-teacher", "regression", "ablation-configs", "select-experiment"])
+    parser.add_argument("command", choices=["environment", "audit", "supervision-audit", "simulate", "prepare", "prepare-internal", "prepare-public-test", "baselines", "pin-model", "smoke", "train", "evaluate", "freeze", "import-protein-tokens", "export-factor-teacher", "regression", "ablation-configs", "select-experiment"])
     parser.add_argument("--config", default="configs/stage1.json")
     parser.add_argument("--destination", default="data/controlled_simulation")
     parser.add_argument("--studies", type=int, default=18)
@@ -31,7 +31,7 @@ def main(argv=None):
     run.mkdir(parents=True, exist_ok=True)
     event = {"command": args.command, "arguments": vars(args), "started_utc": datetime.now(timezone.utc).isoformat(), "status": "running"}
     try:
-        if c.get("pilot_only") and args.command in {"smoke", "train", "freeze", "prepare-internal"}:
+        if c.get("pilot_only") and args.command in {"smoke", "train", "freeze", "prepare-internal", "prepare-public-test"}:
             raise ValueError("Single-study numerical pilot only: independent studies required before training or test freezing")
         if args.command == "export-factor-teacher":
             from .distill import export_factor_vectors
@@ -68,7 +68,7 @@ def main(argv=None):
             else:
                 freeze_pairs(c)
                 result = {"status": "pair_protocol_frozen"}
-        elif c["stage"] == "cross_species_identity" and args.command in {"audit", "prepare-internal", "simulate"}:
+        elif c["stage"] == "cross_species_identity" and args.command in {"audit", "prepare-internal", "prepare-public-test", "simulate"}:
             raise ValueError("Use Stage 1 configuration for dataset audit, numerical baselines, simulation and internal recovery")
         elif args.command == "environment":
             result = environment()
@@ -91,12 +91,12 @@ def main(argv=None):
         elif args.command == "simulate":
             from .benchmark import simulate
             result = {"manifest": str(simulate(args.destination, c["seed"], args.studies)), "source_kind": "controlled_simulation"}
-        elif args.command in {"prepare", "prepare-internal"}:
+        elif args.command in {"prepare", "prepare-internal", "prepare-public-test"}:
             from .benchmark import prepare
             if args.command == "prepare-internal":
                 from .evaluate import check_frozen
                 check_frozen(c, args.methods or [])
-            result = {"prepared_path": str(prepare(c, internal=args.command == "prepare-internal"))}
+            result = {"prepared_path": str(prepare(c, internal=args.command == "prepare-internal", public_test=args.command == "prepare-public-test"))}
         elif args.command == "baselines":
             from .evaluate import baselines
             result = baselines(c)
