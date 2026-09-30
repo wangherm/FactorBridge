@@ -1,0 +1,117 @@
+{
+  "studies": [
+    {
+      "accession": "GSE132040",
+      "species": "Mus musculus",
+      "role": "public_train",
+      "matrix": "GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv.gz",
+      "transform": "log1p_cpm",
+      "unit_policy": "Conservative age-sex cohorts shared across tissues; source-name numerical suffix is not a verified mouse ID",
+      "limitations": [
+        "Independent animal IDs unresolved in the deposited metadata; cohort grouping is a conservative block, not an animal count",
+        "Tissue panels are one study; do not count them as independent studies",
+        "Five HTSeq bookkeeping rows excluded before CPM; 14 libraries without tissue/age/sex excluded"
+      ],
+      "resources": [
+        {
+          "filename": "GSE132040_family.soft.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE132nnn/GSE132040/soft/GSE132040_family.soft.gz",
+          "sha256": "ef8c2c33410aa6ce57a837c285370d5504d2c0fe7f3dc15fe83240a0335788b1"
+        },
+        {
+          "filename": "GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE132nnn/GSE132040/suppl/GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv.gz",
+          "sha256": "f42e5df6722093f85bd3bd6c2d09823a24a2cbd94894452edffb55f2e159fc65"
+        }
+      ]
+    },
+    {
+      "accession": "GSE167665",
+      "species": "Mus musculus",
+      "role": "public_validation",
+      "matrix": "GSE167665_RAW.tar",
+      "transform": "identity",
+      "unit_policy": "Deposited individual field, ind_1 through ind_16; all tissues of an animal grouped",
+      "limitations": [
+        "Author-provided log-transformed and quantile-normalized expression; normalization used all deposited samples",
+        "Validation assesses new-study weak-reference fit, not absolute RNA or causal biology"
+      ],
+      "resources": [
+        {
+          "filename": "GSE167665_family.soft.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167665/soft/GSE167665_family.soft.gz",
+          "sha256": "7f7bbb4daee8fb6815f1e783cd07da9869f546a947e6c0e09eb35b7b3c4b6feb"
+        },
+        {
+          "filename": "GSE167665_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167665/suppl/GSE167665_RAW.tar",
+          "sha256": "9c3ee45a42786c65c829851c4b2eefcb333eb54aea774f685e09d27f63f872bb"
+        }
+      ]
+    },
+    {
+      "accession": "GSE189073",
+      "species": "Mus musculus",
+      "role": "public_train",
+      "matrix": "GSE189073_activation.csv.gz",
+      "transform": "log1p",
+      "unit_policy": "Conservative endpoint cohorts group both replicates of each destructive collection condition",
+      "limitations": [
+        "Animal/pool IDs not reported; endpoint cohort is the grouping block",
+        "GEO processing describes FPKM; integer-looking values are not reclassified as raw counts"
+      ],
+      "resources": [
+        {
+          "filename": "GSE189073_family.soft.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/soft/GSE189073_family.soft.gz",
+          "sha256": "d191190084a8421422f7b59481a92ba815ab13f6e09b3ecc0e6d9bcc30af3c0e"
+        },
+        {
+          "filename": "GSE189073_activation.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/suppl/GSE189073_activation.csv.gz",
+          "sha256": "250c3fd37c40490e687d637f2ab2ea4216f7268db862c8ad212a2c40b89b01d6"
+        },
+        {
+          "filename": "GSE189073_aging.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/suppl/GSE189073_aging.csv.gz",
+          "sha256": "66c77e1055c02fdbeb3fe6c3aea4ff1e6e490c6a6b837554b9fb021ed1837da3"
+        },
+        {
+          "filename": "GSE189073_regeneration.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/suppl/GSE189073_regeneration.csv.gz",
+          "sha256": "16d6da4e4bb8a1f2e22a195ec2ee7c66068f8f13c77c1c6db1fb27cad263bbab"
+        }
+      ],
+      "matrices": [
+        "GSE189073_activation.csv.gz",
+        "GSE189073_aging.csv.gz",
+        "GSE189073_regeneration.csv.gz"
+      ],
+      "gene_join": "intersection_all_subexperiments"
+    },
+    {
+      "accession": "GSE255958",
+      "species": "Homo sapiens",
+      "role": "public_train",
+      "matrix": "GSE255958_RAW.tar",
+      "transform": "log1p",
+      "unit_policy": "Same cell-line and replicate across perturbations grouped; all replicates of a patient-derived organoid/PDX model grouped",
+      "limitations": [
+        "Cell models rather than independent donors; no claim of donor generalization",
+        "TPM normalized by the depositor; no count thinning"
+      ],
+      "resources": [
+        {
+          "filename": "GSE255958_family.soft.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE255nnn/GSE255958/soft/GSE255958_family.soft.gz",
+          "sha256": "004cce1f2361c9b1b7775fbf31862937da1e39fafb246286aa2555c88930c9e5"
+        },
+        {
+          "filename": "GSE255958_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE255nnn/GSE255958/suppl/GSE255958_RAW.tar",
+          "sha256": "c6d27dc5afcfd8b55aba3ed8bc632c6d4a82521da0bb5229aed0fd859b3d82da"
+        }
+      ]
+    }
+  ]
+}

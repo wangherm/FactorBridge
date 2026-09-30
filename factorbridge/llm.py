@@ -266,16 +266,60 @@ def smoke(c):
                "peak_cuda_bytes": torch.cuda.max_memory_allocated(), "steps": c["smoke_steps"]})
 
 
+def verify_training_smoke(c):
+    """Reuse measured GPU evidence for a new dataset, never manufacture a smoke pass.
+
+    The explicitly accepted previous release used the identical load/step/save
+    implementation. Its hash is needed because signatures also hash data code.
+    All actual evidence is read from the user's original run on this machine.
+    """
+    source = read_json(c["reuse_smoke_config"]) if c.get("reuse_smoke_config") else c
+    root = Path(source["run_dir"]) / "smoke"
+    state = read_json(root / "status.json")
+    if state.get("status") != "passed":
+        raise RuntimeError("Actual successful GPU smoke evidence required")
+    _, index = prepared(source)
+    env = environment()
+    if read_json(root / "environment.json") != env:
+        raise RuntimeError("GPU/dependencies changed since the measured smoke; evidence cannot be reused")
+    allowed_code = [code_hash()]
+    if source["stage"] == "noise_recovery":
+        # ad51e79: measured Qwen NF4/BF16 load/backward/save/reload implementation.
+        allowed_code.append("34dbe91c405ab862eb9bd201c4808a0fc10fa1866fb0b40d5cfa2747e98e3922")
+    valid = [digest({"config": source, "prepared": index, "code": h,
+                     "environment": env, "initial_adapter": {}}) for h in allowed_code]
+    if source["stage"] != "noise_recovery":
+        valid = [signature(source)]
+    if state.get("signature") not in valid:
+        raise RuntimeError("Smoke signature does not match its original data, configuration, code and environment")
+    if c.get("reuse_smoke_config"):
+        if source["stage"] != "noise_recovery" or c["stage"] != "noise_recovery":
+            raise ValueError("Dataset-only smoke reuse is limited to Stage 1; new teachers require their own evidence")
+        data_keys = {"manifest", "run_dir", "pilot_only", "defer_public_test", "independent_dataset_cards",
+                     "internal_final_test_only", "reuse_smoke_config", "epochs", "rank", "noise_levels"}
+        different = [k for k in set(c) | set(source) if k not in data_keys and c.get(k) != source.get(k)]
+        if different:
+            raise ValueError(f"Model/training recipe differs from passed smoke: {different}")
+        diagnostic = read_json(root / "reload_diagnostics.json")
+        if not all(diagnostic.get(k) for k in ["parameter_structure_and_dtypes_equal", "adapter_tensor_hashes_equal", "logits_allclose"]):
+            raise RuntimeError("Original save/reload diagnostics did not pass")
+        if read_json(root / "adapter/resolved_config.json") != source:
+            raise RuntimeError("Original smoke adapter configuration changed")
+    return {"mode": "reused_actual_gpu_smoke" if c.get("reuse_smoke_config") else "original_run_smoke",
+            "source_run": source["run_dir"], "source_signature": state["signature"],
+            "new_smoke_executed": False, "reload_max_abs_delta": state.get("reload_max_abs_delta"),
+            "evidence_sha256": {str(p.relative_to(root)): sha256(p) for p in sorted(root.rglob("*")) if p.is_file()}}
+
+
 def train(c):
     torch = require_gpu()
     sig = signature(c)
-    smoke_state = read_json(Path(c["run_dir"]) / "smoke/status.json")
-    if smoke_state.get("status") != "passed" or smoke_state["signature"] != sig:
-        raise RuntimeError("Matching actual GPU smoke pass required before formal training")
+    smoke_evidence = verify_training_smoke(c)
     root = Path(c["run_dir"]) / "training"
     if root.exists():
         raise FileExistsError("Training directory exists; never overwrite a run")
     root.mkdir(parents=True)
+    write_json(root / "gpu_smoke_evidence.json", smoke_evidence)
     write_json(root / "status.json", {"status": "running", "signature": sig})
     torch.manual_seed(c["seed"])
     rng = np.random.default_rng(c["seed"])
@@ -302,6 +346,7 @@ def train(c):
             steps += 1
             logs.append({"epoch": epoch + 1, "step": steps, "training_loss": loss, "elapsed_seconds": time.monotonic() - started})
             write_jsonl(root / "steps.jsonl", logs)
+            print(json.dumps(logs[-1]), flush=True)
         model.eval()
         val, val_sft, val_aux = [], [], []
         with torch.no_grad():
@@ -313,6 +358,7 @@ def train(c):
             raise RuntimeError("Nonfinite validation loss")
         logs.append({"epoch": epoch + 1, "validation_loss": vl, "validation_sft_loss": float(np.mean(val_sft)), "validation_auxiliary_mse": float(np.mean(val_aux))})
         write_jsonl(root / "steps.jsonl", logs)
+        print(json.dumps(logs[-1]), flush=True)
         if vl < best:
             best = vl
             save(model, tok, root / "adapter", c, head)

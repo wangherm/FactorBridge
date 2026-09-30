@@ -88,7 +88,9 @@ def audit(c):
             r.update(matrix_status="validated", shape=list(x.shape), n_genes=len(genes), n_samples=len(samples))
         records.append(r)
     report = {"datasets": records, "roles": {s: sum(e["role"] == s for e in entries) for s in ROLES},
-              "no_accessions_assumed_downloaded": True, "scope": "single-dataset local extraction; same-species/assay cohorts only"}
+              "no_accessions_assumed_downloaded": True,
+              "scope": ("Dataset-local numerical extraction; pool evidence cards across admitted strata, never concatenate raw matrices"
+                        if c.get("independent_dataset_cards") else "single-dataset local extraction; same-species/assay cohorts only")}
     write_json(Path(c["run_dir"]) / "audit.json", report)
     return report
 

@@ -159,13 +159,17 @@ def prepare(c, internal=False, public_test=False):
     if not entries:
         raise ValueError("No eligible datasets")
     strata = {(e["species"], e["assay"], e["resolution"], e["data_scale"]) for e in entries}
-    if len(strata) != 1:
+    if len(strata) != 1 and not c.get("independent_dataset_cards"):
         raise ValueError("Stage 1 pilot requires a single species/assay/resolution/scale per run")
     if c.get("pilot_only"):
         if internal or len(entries) != 1 or entries[0]["role"] != "public_train" or entries[0]["source_kind"] != "public_real":
             raise ValueError("pilot_only requires exactly one public real study, entirely in train")
-    elif not internal and {e["role"] for e in entries} != {"public_train", "public_validation", "public_test"}:
-        raise ValueError("Independent study roles train/validation/test required; never split views randomly")
+    elif not internal:
+        required_roles = {"public_train", "public_validation"}
+        if not c.get("internal_final_test_only"):
+            required_roles.add("public_test")
+        if {e["role"] for e in entries} != required_roles:
+            raise ValueError(f"Independent study roles {sorted(required_roles)} required; never split views randomly")
     cards, labels, sidecars, splits = [], [], [], []
     root.mkdir(parents=True)
     try:

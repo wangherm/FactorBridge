@@ -1,0 +1,2579 @@
+{
+  "version": "public-catalogue-v2",
+  "source": "User-supplied VD-Bench Data Catalogue v1.2",
+  "scope": "Public expression resources and metadata; non-expression modalities archived separately, never labelled as expression training",
+  "internal_killifish": "frozen_final_test_not_accessed",
+  "records": [
+    {
+      "catalogue_record": 1,
+      "title": "1. OWN-KF-SC01, Killifish single-cell atlas: core, extended Exit and stress arms",
+      "accessions": [],
+      "role": "frozen_internal_test",
+      "note": "No internal files read, downloaded or used"
+    },
+    {
+      "catalogue_record": 2,
+      "title": "2. OWN-KF-BULK01, Killifish bulk family: single embryos, pooled Exit and regional sections",
+      "accessions": [],
+      "role": "frozen_internal_test",
+      "note": "No internal files read, downloaded or used"
+    },
+    {
+      "catalogue_record": 3,
+      "title": "3. OWN-POMBE01, Fission yeast internal holdings pointer",
+      "accessions": [],
+      "role": "internal_pointer_no_additional_data",
+      "note": "No internal files read, downloaded or used"
+    },
+    {
+      "catalogue_record": 4,
+      "title": "4. HAS-POMBE-SPORE-STATE, Fission yeast spores versus proliferating and stationary cells",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 5,
+      "title": "5. HAS-POMBE-SPORE-AGE, Fission yeast spore ageing series",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 6,
+      "title": "6. HAS-POMBE-SPORE-HS, Fission yeast spore heat-stress response",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 7,
+      "title": "7. HAS-POMBE-OFFSPRING, Cells derived from aged or stressed fission yeast spores",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 8,
+      "title": "8. HAS-POMBE-BARSEQ, Genome-wide deletion screen for spore lifespan and heat resilience",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 9,
+      "title": "9. HAS-KF-GRZ-STATE, Killifish GRZ diapause versus developing embryos",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 10,
+      "title": "10. HAS-KF-MZCS-DURATION, Killifish MZCS early versus late diapause",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 11,
+      "title": "11. HAS-KF-MZCS-HS, Killifish diapause heat-stress response",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 12,
+      "title": "12. HAS-KF-MZCS-POSTDIA, Killifish post-diapause pre-hatching embryos",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 13,
+      "title": "13. PUB-GSE124109, Rat fibroblast deep-quiescence time series",
+      "accessions": [
+        "GSE124109"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 14,
+      "title": "14. PUB-GSE104616, Human serum-starved fibroblast quiescence and exit",
+      "accessions": [
+        "GSE104616"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 15,
+      "title": "15. PUB-GSE184821, Mouse satellite-cell deep-quiescence perturbation",
+      "accessions": [
+        "GSE184821"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 16,
+      "title": "16. PUB-GSE223093, Mouse neural stem-cell graded quiescence",
+      "accessions": [
+        "GSE223093"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 17,
+      "title": "17. PUB-GSE168189, Mouse dormant versus primed neural stem cells",
+      "accessions": [
+        "GSE168189"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 18,
+      "title": "18. PUB-GSE139013, Single-cell HSC G0-marker states",
+      "accessions": [
+        "GSE139013"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 19,
+      "title": "19. PUB-GSE189073, Mouse muscle stem-cell quiescence and activation",
+      "accessions": [
+        "GSE189073",
+        "GSE189074"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 20,
+      "title": "20. PUB-GSE221470, mTOR-induced ES-cell dormancy and TET multi-omics",
+      "accessions": [
+        "GSE221470"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 21,
+      "title": "21. PUB-GSE3169 — *C. elegans* dauer-exit time course",
+      "accessions": [
+        "GSE3169"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 22,
+      "title": "22. PUB-GSE166789, Budding-yeast quiescence exit: nascent RNA and chromatin",
+      "accessions": [
+        "GSE166789"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 23,
+      "title": "23. PUB-GSE117444, Human contact-inhibited fibroblast quiescence",
+      "accessions": [
+        "GSE117444"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 24,
+      "title": "24. PUB-GSE149508, Mouse hepatic stellate-cell quiescence",
+      "accessions": [
+        "GSE149508"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 25,
+      "title": "25. PUB-GSE67149, Budding-yeast quiescence entry with ERCC spike-ins",
+      "accessions": [
+        "GSE67149"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 26,
+      "title": "26. PUB-GSE129599, Fission yeast quiescence and nitrogen refeeding",
+      "accessions": [
+        "GSE129599"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 27,
+      "title": "27. PUB-GSE213459, Fission yeast phosphate-starvation RNA time course",
+      "accessions": [
+        "GSE213459"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 28,
+      "title": "28. PUB-GSE241462, Mouse embryonic diapause and reactivation single-cell atlas",
+      "accessions": [
+        "GSE241462"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 29,
+      "title": "29. PUB-GSE143494, Mouse inner-cell-mass diapause",
+      "accessions": [
+        "GSE143494"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 30,
+      "title": "30. PUB-GSE220804, Mouse blastocyst diapause induced by nutrient deprivation",
+      "accessions": [
+        "GSE220804"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 31,
+      "title": "31. PUB-GSE81285, mTOR-inhibition-induced paused pluripotency",
+      "accessions": [
+        "GSE81285"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 32,
+      "title": "32. PUB-GSE30977 and PUB-GSE31861, Two-species dauer and 12-h exit comparisons",
+      "accessions": [
+        "GSE30977",
+        "GSE31861",
+        "GSE36644"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 33,
+      "title": "33. PUB-GSE193258, EGFR-mutant NSCLC persister washout series",
+      "accessions": [
+        "GSE193258"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 34,
+      "title": "34. PUB-GSE246690, Melanoma diapause-like persister",
+      "accessions": [
+        "GSE246690"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 35,
+      "title": "35. PUB-GSE255958, PC9 osimertinib persister",
+      "accessions": [
+        "GSE255958"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 36,
+      "title": "36. PUB-GSE150949, Single-cell osimertinib response in PC9",
+      "accessions": [
+        "GSE150949"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 37,
+      "title": "37. PUB-GSE153183, Paired parental and TKI-persister",
+      "accessions": [
+        "GSE153183"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 38,
+      "title": "38. PUB-GSE275305, Persister chromatin accessibility",
+      "accessions": [
+        "GSE275305"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 39,
+      "title": "39. PUB-GSE83142, BCP-ALL dormant and therapy-resistant cells: mixed RNA designs",
+      "accessions": [
+        "GSE83142"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 40,
+      "title": "40. PUB-GSE199716, In-vivo EGFR-mutant persister single cell",
+      "accessions": [
+        "GSE199716"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 41,
+      "title": "41. PUB-GSE63577, Replicative senescence across human fibroblast lines",
+      "accessions": [
+        "GSE63577"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 42,
+      "title": "42. PUB-GSE64553, Human fibroblast population-doubling and senescence gradient",
+      "accessions": [
+        "GSE64553"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 43,
+      "title": "43. PUB-GSE175533, WI-38 replicative senescence",
+      "accessions": [
+        "GSE175533"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 44,
+      "title": "44. PUB-GSE101758, RAS-induced senescence with EXOC7/PTBP1 knockdown",
+      "accessions": [
+        "GSE101758",
+        "GSE101763"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 45,
+      "title": "45. PUB-GSE130727, Multi-induction human senescence collection",
+      "accessions": [
+        "GSE130727"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 46,
+      "title": "46. PUB-GSE226225, WI-38 induced-senescence time course",
+      "accessions": [
+        "GSE226225"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 47,
+      "title": "47. PUB-GSE117817, Human fibroblast population-doubling series, small RNA",
+      "accessions": [
+        "GSE117817"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 48,
+      "title": "48. PUB-GSE74620, Therapy-induced senescence",
+      "accessions": [
+        "GSE74620"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 49,
+      "title": "49. PUB-GSE11415, C2C12 myoblast to myotube differentiation",
+      "accessions": [
+        "GSE11415"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 50,
+      "title": "50. PUB-GSE84158, C2C12 myotube differentiation and companion Hi-C",
+      "accessions": [
+        "GSE84158",
+        "GSE84279"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 51,
+      "title": "51. PUB-GSE149590, Tabula Muris Senis multi-tissue ageing",
+      "accessions": [
+        "GSE149590"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 52,
+      "title": "52. PUB-GSE308970 — *N. furzeri* multi-tissue ageing",
+      "accessions": [
+        "GSE308970"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 53,
+      "title": "53. PUB-GSE132040 and PUB-GSE167665, Mouse multi-organ and lifespan ageing",
+      "accessions": [
+        "GSE132040",
+        "GSE167665"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 54,
+      "title": "54. PUB-E-MTAB-6967, Mouse gastrulation and early organogenesis atlas",
+      "accessions": [
+        "E-MTAB-6967"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 55,
+      "title": "55. PUB-ZEBRAHUB, Zebrahub single-embryo zebrafish developmental atlas",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 56,
+      "title": "56. PUB-GSE112294, Zebrafish first-day development atlas",
+      "accessions": [
+        "GSE112294"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 57,
+      "title": "57. PUB-GSE126954 — *C. elegans* embryogenesis atlas",
+      "accessions": [
+        "GSE126954"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 58,
+      "title": "58. PUB-E-ERAD-475, Zebrafish bulk developmental time series",
+      "accessions": [
+        "E-ERAD-475"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 59,
+      "title": "59. PUB-PRJNA503701 and PUB-GSE185815, External killifish resources",
+      "accessions": [
+        "GSE185815",
+        "PRJNA503701"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 60,
+      "title": "60. LIT-AUSTRO-POSTDIA — *Austrofundulus limnaeus* post-diapause recovery",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 61,
+      "title": "61. LIT-TERMINAL-DIFF-NEURON, Post-mitotic neuronal differentiation",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 62,
+      "title": "62. LIT-RPE-DEPTH, Human retinal pigment epithelium progressive quiescence",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 63,
+      "title": "63. LIT-NSC-GUILLEMOT, Mouse hippocampal neural stem-cell depth",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 64,
+      "title": "64. LIT-NEMATOLEBIAS, Nematolebias whitei diapause III versus hatchling larvae ",
+      "accessions": [
+        "SRR3403067",
+        "SRR3405606",
+        "SRR3405615",
+        "SRR3405616",
+        "SRR3405617",
+        "SRR3405618"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 65,
+      "title": "65. EGAS00001004773, Colorectal-cancer diapause-like persistence",
+      "accessions": [],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 66,
+      "title": "66. PUB-GSE176366, B-ALL persister",
+      "accessions": [
+        "GSE176366"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 67,
+      "title": "67. PUB-GSE112094, Mouse breast cancer dormancy model D2.0R",
+      "accessions": [
+        "GSE112094"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 68,
+      "title": "68. PUB-GSE190765, Mouse adult neural stem cell, Rb triple knockout",
+      "accessions": [
+        "GSE190765"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    },
+    {
+      "catalogue_record": 69,
+      "title": "69. PUB-GSE176317, Human haematopoietic stem and progenitor cells, FOS overexpression",
+      "accessions": [
+        "E-ERAD-475",
+        "E-MTAB-6967",
+        "EGAS00001004773",
+        "GSE101758",
+        "GSE104616",
+        "GSE112094",
+        "GSE112294",
+        "GSE11415",
+        "GSE117444",
+        "GSE117817",
+        "GSE124109",
+        "GSE126954",
+        "GSE129599",
+        "GSE130727",
+        "GSE132040",
+        "GSE139013",
+        "GSE143494",
+        "GSE149508",
+        "GSE149590",
+        "GSE150949",
+        "GSE153183",
+        "GSE166789",
+        "GSE167665",
+        "GSE168189",
+        "GSE175533",
+        "GSE176317",
+        "GSE176366",
+        "GSE184821",
+        "GSE185815",
+        "GSE189073",
+        "GSE190765",
+        "GSE193258",
+        "GSE199716",
+        "GSE213459",
+        "GSE220804",
+        "GSE221470",
+        "GSE223093",
+        "GSE226225",
+        "GSE241462",
+        "GSE246690",
+        "GSE255958",
+        "GSE275305",
+        "GSE308970",
+        "GSE30977",
+        "GSE3169",
+        "GSE31861",
+        "GSE63577",
+        "GSE64553",
+        "GSE67149",
+        "GSE74620",
+        "GSE81285",
+        "GSE83142",
+        "GSE84158",
+        "PRJNA503701"
+      ],
+      "role": "public_acquisition",
+      "note": "Accession is a source pointer, not proof of local expression data"
+    }
+  ],
+  "geo_series": [
+    {
+      "accession": "GSE101758",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE101nnn/GSE101758/",
+      "title": [
+        "Transcriptomic analysis of senescent cells upon EXOC7 knockdown."
+      ],
+      "design": [
+        "5 conditions were examined: proliferating cells (si_Scramble), senescent cells (si_Scramble + 4OHT), senescent cells transfected with an siRNA targeting EXOC7 (si_EXOC7_3 + 4OHT), senescent cells transfected with a different siRNA targeting EXOC7 (si_EXOC7_4 + 4OHT) and senescent cells transfected with an siRNA targeting PTBP1 (si_PTBP1_5 + 4OHT)."
+      ],
+      "relations": [
+        "SubSeries of: GSE101763",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA395378",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP113329"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 15,
+      "metadata_sha256": "f9bad04544e1ef0816e08cb240d2507c3ecaa5865338bdbf7371b899fbebff4d",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE101758_Set1Exp2_Readcounts.xlsx",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE101nnn/GSE101758/suppl/GSE101758_Set1Exp2_Readcounts.xlsx",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE101763",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE101nnn/GSE101763/",
+      "title": null,
+      "design": null,
+      "relations": null,
+      "species": null,
+      "assays": null,
+      "n_samples": null,
+      "metadata_sha256": null,
+      "status": "failed",
+      "files": []
+    },
+    {
+      "accession": "GSE104616",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE104nnn/GSE104616/",
+      "title": [
+        "Expression data of synchronised primary human fibroblasts (NHDF, Data Set 1)"
+      ],
+      "design": [
+        "Primary human fibroblasts (NHDF) were firstly synchronised by limiting nutrients (from 10% to 0.1% of faetal calf serum) in the medium for 48 h. Samples were collected at t= 0 (after 48 h starvation but before full medium replacement), t = 6 h, t = 12 h, t = 18 h, t = 24 h, t = 30 h, t = 36 h, t = 42 h, t = 48 h. Three techincal replica were collected for time points 0 h, 24 h, 30 h, and controls (unsynchronised)."
+      ],
+      "relations": [
+        "SubSeries of: GSE104619",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA413367"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "array"
+      ],
+      "n_samples": 24,
+      "metadata_sha256": "cdcc17ddb453695594ebcfb55c75a6545ae5f96ec7131945dacb6d76a9c9f960",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE104616_NHDF_1_matrix_data.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE104nnn/GSE104616/suppl/GSE104616_NHDF_1_matrix_data.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE104616_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE104nnn/GSE104616/suppl/GSE104616_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE104nnn/GSE104616/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE112094",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112094/",
+      "title": [
+        "RNA-seq identifies autophagy as the most prevalent upregulated pathway in dormant breast cancer cells"
+      ],
+      "design": [
+        "mRNA profiles of D2.0R cells after culture on BME or BME + COL matrices for 1 or 5 days were generated by deep sequencing in triplicate with Ilumina HiSeq2500 using Illumina TruSeq V4."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA439284",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP136107"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 9,
+      "metadata_sha256": "906182689ca0f9385d58c4c149da3be6509b01fa7307b889fcafe63580ef0a65",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE112094_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112094/suppl/GSE112094_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112094/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE112294",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112294/",
+      "title": [
+        "Systematic mapping of cell state trajectories, cell lineage, and perturbations in the zebrafish embryo using single cell transcriptomics"
+      ],
+      "design": [
+        "Single-cell mRNA sequencing of zebrafish embryonic cells. Samples1-7: Single cell libraries from untreated embryos (4-24 hours post-fertilization). Samples8-12: Single cell libraries from embryos injected with TracerSeq lineage cassette at the 1-cell stage. Samples13-18: Single cell libraries from embryos injected with sgRNA + Cas9 at the 1-cell stage."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA445487",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP136369"
+      ],
+      "species": [
+        "Danio rerio"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 18,
+      "metadata_sha256": "7c6591acbc204cbc8df9abed84e1a47f59957cecdce45b01aee2d88481126ec7",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE112294_ClusterNames.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112294/suppl/GSE112294_ClusterNames.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE112294_LibraryName_SRR_readme.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112294/suppl/GSE112294_LibraryName_SRR_readme.txt",
+          "sha256": null
+        },
+        {
+          "filename": "GSE112294_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112294/suppl/GSE112294_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE112nnn/GSE112294/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE11415",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11415/",
+      "title": [
+        "C2C12 differentiation time course to observe changes between myoblasts and myotubes"
+      ],
+      "design": [
+        "8 time points from Day -1 to Day 5, three replicates for each time point."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA106427"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "array"
+      ],
+      "n_samples": 24,
+      "metadata_sha256": "62633eef78533d39dd4ea506ba2ed18317bf215b49253b4693936c5e345e5c70",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE11415_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11415/suppl/GSE11415_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11415/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE117444",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE117nnn/GSE117444/",
+      "title": [
+        "Differential gene expression analysis between proliferating and quiescent human dermal fibroblasts"
+      ],
+      "design": [
+        "Three different biological replicates (corresponding to two fibroblast strains, 10-5 and 12-1) were collected in proliferating and contact--inhibited (quiescent) conditions."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA482131",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP154577"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 6,
+      "metadata_sha256": "fa90d346bee50b0d5ec3cdb0a4fa8f0048b2c7868d222f0ed068ef0117c66361",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE117444_counts_rnaseq.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE117nnn/GSE117444/suppl/GSE117444_counts_rnaseq.csv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE117817",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE117nnn/GSE117817/",
+      "title": [
+        "Sequencing of human HFF fibroblasts during replicative senescence (smallRNA)"
+      ],
+      "design": [
+        "15 samples in 5 groups: 16 PD (3 samples), 26 PD (3 samples), 46 PD (3 samples), 64 PD (3 samples), 74 PD (3 samples)"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA483225",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP155556"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "ncRNA-Seq"
+      ],
+      "n_samples": 15,
+      "metadata_sha256": "721eb0b739b906de248ceac7428744265ba4d3a6353e9a616028c8a4c134f21f",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE117817_sample_counts.xls.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE117nnn/GSE117817/suppl/GSE117817_sample_counts.xls.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE124109",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE124109/",
+      "title": [
+        "Graded regulation of cellular quiescence depth between proliferation and senescence by a lysosomal dimmer switch"
+      ],
+      "design": [
+        "Gene expression profiling of rat embryonic fibroblasts undergone different durations (0-16 days) of serum starvation, with 3 biological replicates at each time point."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA510786",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP173916"
+      ],
+      "species": [
+        "Rattus norvegicus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 30,
+      "metadata_sha256": "d2f4feca901b21f5a5e77e7ace6194ba7d799ceea2b65904a6b78a86d5349e77",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE124109_genes.processed.fpkm_table.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE124109/suppl/GSE124109_genes.processed.fpkm_table.txt.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE126954",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126954/",
+      "title": [
+        "A lineage-resolved molecular atlas of C. elegans embryogenesis at single cell resolution"
+      ],
+      "design": [
+        "Single cell RNA-seq profiles of cells from C. elegans embryos at varying developmental stages (~100-650 minutes post first cleavage).",
+        "",
+        "Please note that the GSM2599701 (in GSE98561) raw data was re-analyzed and the resulting (processed) data is linked to the GSM4318946 records, which is duplicated sample record of GSM2599701 (with the re-analysis details) for the convenient retrieval of the complete raw data from SRA."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA523834",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP186643"
+      ],
+      "species": [
+        "Caenorhabditis elegans"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 8,
+      "metadata_sha256": "27e966b74fe03acdcf527636332c02d9cc8fb9836344aab89bf00c1f3a589c9a",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE126954_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126954/suppl/GSE126954_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "GSE126954_cell_annotation.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126954/suppl/GSE126954_cell_annotation.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE126954_gene_annotation.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126954/suppl/GSE126954_gene_annotation.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE126954_gene_by_cell_count_matrix.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126954/suppl/GSE126954_gene_by_cell_count_matrix.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126954/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE129599",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129599/",
+      "title": [
+        "Cellular quiescence is dependent upon the HIRA histone chaperone"
+      ],
+      "design": [
+        "Examination of nitrogen starved (quiescent) and re-fed fission yeast cells (wildtype and hip1 mutant)"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA531915",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP191845"
+      ],
+      "species": [
+        "Schizosaccharomyces pombe"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 12,
+      "metadata_sha256": "57edf2f30e54a7b7b4cde96a124f3a50a8162a649fbec9c5d955c80efdf529bd",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE129599_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129599/suppl/GSE129599_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129599/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE130727",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE130nnn/GSE130727/",
+      "title": [
+        "Transcriptome Signature of Cellular Senescence"
+      ],
+      "design": [
+        "Transcriptomic analysis of various cell line models of senescence and their respective controls"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA541183",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP195418"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 37,
+      "metadata_sha256": "506a6fa708f5a2175e90a0254fb413ed8b9b4fb4f1e3105a5cdd4e28306688b1",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE130727_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE130nnn/GSE130727/suppl/GSE130727_RAW.tar",
+          "sha256": "8ac887c26ac9b9ef4e07304a7060e9d744c351e10b54b5271efdba66ea4019bd"
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE130nnn/GSE130727/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE132040",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE132nnn/GSE132040/",
+      "title": [
+        "Tabula Muris Senis: Bulk sequencing"
+      ],
+      "design": [
+        "This dataset contains the transcriptomic information of 17 organs from Mus musculus across the organism's life span."
+      ],
+      "relations": [
+        "SubSeries of: GSE132042",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP199494"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 947,
+      "metadata_sha256": "ef8c2c33410aa6ce57a837c285370d5504d2c0fe7f3dc15fe83240a0335788b1",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE132nnn/GSE132040/suppl/GSE132040_190214_A00111_0269_AHH3J3DSXX_190214_A00111_0270_BHHMFWDSXX.csv.gz",
+          "sha256": "f42e5df6722093f85bd3bd6c2d09823a24a2cbd94894452edffb55f2e159fc65"
+        },
+        {
+          "filename": "GSE132040_MACA_Bulk_metadata.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE132nnn/GSE132040/suppl/GSE132040_MACA_Bulk_metadata.csv.gz",
+          "sha256": "d2cb023abc8399401e227da38d040a15ab4395cee10dca36a812fa59399b4430"
+        }
+      ]
+    },
+    {
+      "accession": "GSE139013",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE139nnn/GSE139013/",
+      "title": [
+        "Discrimination of dormant and active hematopoietic stem cells by G0 markers reveals dormancy regulation by cytoplasmic calcium"
+      ],
+      "design": [
+        "RNA sequencing of mouse bone marrow HSCs treated with or without LPS"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA578092",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP226047"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 576,
+      "metadata_sha256": "a948945702394bdaa80d49414d95007331491d87fcc4814643980855d69c62db",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE139013_HTSeq_counts_LPS.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE139nnn/GSE139013/suppl/GSE139013_HTSeq_counts_LPS.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE139013_HTSeq_counts_ctrl.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE139nnn/GSE139013/suppl/GSE139013_HTSeq_counts_ctrl.txt.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE143494",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE143nnn/GSE143494/",
+      "title": [
+        "Metabolic control over mTOR dependent diapause-like state"
+      ],
+      "design": [
+        "We did RNA-seq of Inner cell mass (ICM), diapause (dICM) and post-implantation (EPI) mouse embryos."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA600822",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP241679"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 8,
+      "metadata_sha256": "12b498f68c8fa897c549195cf98914f1a22fc8ff380e7d1d2e6386cced45b5aa",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE143494_Embryo_TPM_matrix.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE143nnn/GSE143494/suppl/GSE143494_Embryo_TPM_matrix.txt.gz",
+          "sha256": "bb1185a9a3922ff40b2b26c7087c783fb3581d2236adc5a7435b90c5c211f33e"
+        }
+      ]
+    },
+    {
+      "accession": "GSE149508",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149508/",
+      "title": [
+        "Gene Expression Patterns of Quiescent and Activated  Mouse Primary Hepatic Stellate Cell (HSC)"
+      ],
+      "design": [
+        "Quiescent and activated hepatic stellate cells (qHSCs and aHSCs) were isolated from three control mice (0.1mL olive oil gavage, thrice a week for eight weeks)  and three mice with CCl4-induced liver fibrosis (0.1 mL of a 40% CCl4-olive oil solution gavage, thrice a week for eight weeks) respectively. And transcriptome profiles of qHSCs and aHSCs were generated by RNA sequencing using Illumina HiSeq 4000."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA628937",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP258909"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 6,
+      "metadata_sha256": "ac7fc95f4ad0d5575e280162db0c98e6b3c89f7134c83689583a0943f8153ad1",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE149508_All_samples_processed_data_FPKM.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149508/suppl/GSE149508_All_samples_processed_data_FPKM.txt.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE149590",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149590/",
+      "title": [
+        "Tabula Muris Senis"
+      ],
+      "design": [
+        "Various tissues. The raw data is accessible from a public AWS bucket (s3://czb-tabula-muris-senis/)."
+      ],
+      "relations": [
+        "SubSeries of: GSE132042",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA629323"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 2,
+      "metadata_sha256": "e3ec7db169918ba582aa265a690e7415183cbc9b3f3416724987710815cb5c3c",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE149590_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149590/suppl/GSE149590_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE149nnn/GSE149590/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE150949",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150949/",
+      "title": [
+        "Cycling cancer persisters arise from lineages with distinct transcriptional and metabolic programs"
+      ],
+      "design": [
+        "10X Genomics single cell RNAseq of PC9 cells treated with Osimertinib",
+        "Lung cancer PC9 cells were treated with osimertinib (300nM) and harvested before treatment, after 3,7, and 14 days of continuous drug treatment. At day 14 prior to sequencing, cells were sorted to three groups based on mCherry expression:cycling (low), moderate cyclers (med) and non-cycling (high)",
+        "In addition, seven Watermelon lines models from EGFR-driven lung cancer (PC9, HCC827), HER2-driven breast cancer (BT474, EFM192A) and BRAF-driven melanoma (A375, COLO858) and colorectal (HT29) cell lines, treated them with clinically relevant kinase inhibitors for 10 days (300nM osimertinib, 1uM lapatinib or 1uM dabrafenib). At day 10 prior to sequencing, cells were sorted to three groups based om mCherry expression:cycling (low) and non-cycling (high)"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA634136",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP262512"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 19,
+      "metadata_sha256": "7fd7fc7450dd62ea81db60222c98a96b430bd82af936e0ab74d3371e5ab7e123",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE150949_metaData_with_lineage.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150949/suppl/GSE150949_metaData_with_lineage.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE150949_pc9_count_matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150949/suppl/GSE150949_pc9_count_matrix.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE150949_pooled_watermelon.count.matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150949/suppl/GSE150949_pooled_watermelon.count.matrix.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE150949_pooled_watermelon.data.matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150949/suppl/GSE150949_pooled_watermelon.data.matrix.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE150949_pooled_watermelon.metadata.matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150949/suppl/GSE150949_pooled_watermelon.metadata.matrix.csv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE153183",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE153nnn/GSE153183/",
+      "title": [
+        "Gene expression profiling of drug-tolerant persister PC9 non-small cell lung cancer cells derived from osimertinib treatment"
+      ],
+      "design": [
+        "two biological replicates of PC9 parental and DTP cells"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA641683",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP268690"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 4,
+      "metadata_sha256": "e7db471c5c01b664c82d46a06c7f29116dc9cbc4e4702d583b2a917e5cc4b2cd",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE153183_FPKM_matrix.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE153nnn/GSE153183/suppl/GSE153183_FPKM_matrix.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE153183_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE153nnn/GSE153183/suppl/GSE153183_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE153nnn/GSE153183/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE166789",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166789/",
+      "title": [
+        "RSC primes the quiescent genome for hypertranscription upon cell cycle re-entry"
+      ],
+      "design": [
+        "Examination of RNA levels, chromatin profiling, and nucleosome positions in yeast with and without the chromatin remodeler RSC"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA701958",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP306474"
+      ],
+      "species": [
+        "Saccharomyces cerevisiae"
+      ],
+      "assays": [
+        "ChIP-Seq",
+        "MNase-Seq",
+        "RNA-Seq"
+      ],
+      "n_samples": 49,
+      "metadata_sha256": "3fb684b1d0f833e3e7bfefa254ebc9d3036f96d687227720029cfe5edd2aeb33",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE166789_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166789/suppl/GSE166789_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166789/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE167665",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167665/",
+      "title": [
+        "Bulk RNA-seq of mice covering the whole lifespan (2 days to 904 days) from four tissues"
+      ],
+      "design": [
+        "Age-series mRNA expression profiles from 4 tissues (cerebral cortex, lung, liver, skeletal muscle) of 16 mice, covering postnatal development (2 days - 61 days) and ageing (93 days – 904 days) periods."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA705172",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP308378"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 63,
+      "metadata_sha256": "7f7bbb4daee8fb6815f1e783cd07da9869f546a947e6c0e09eb35b7b3c4b6feb",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE167665_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167665/suppl/GSE167665_RAW.tar",
+          "sha256": "9c3ee45a42786c65c829851c4b2eefcb333eb54aea774f685e09d27f63f872bb"
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167665/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE168189",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE168nnn/GSE168189/",
+      "title": [
+        "LRIG1 is a gatekeeper to exit from quiescence in adult neural stem cells"
+      ],
+      "design": [
+        "We used 2 independent adult neural stem cells lines.  They were derived from the SVZ (Subventricular zone) of young WT adult mice (6-8 weeks old). ANS4 (A4) and Bl6. The cells were used at passage less than 10 and were plated at low density for 3 days. We used 2 biological replicas per condition in each line. NSCs were treated in EGF/FGF, BMP4 (B) and BMP4+FGF2 (BF) for 3 days and after RNA was extracted using Quiagen kit."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA706418",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP309152"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 12,
+      "metadata_sha256": "6ceffe9aa64f09b4508bdcd2766d9242b81fcd43fde541f301275d9bea6538ce",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE168189_RNAseq_Mouse_normalised_counts.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE168nnn/GSE168189/suppl/GSE168189_RNAseq_Mouse_normalised_counts.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE168189_RNAseq_Mouse_raw_counts.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE168nnn/GSE168189/suppl/GSE168189_RNAseq_Mouse_raw_counts.txt.gz",
+          "sha256": "7fc4ae16e4d166a34dba3bd67519f10e10c36db3ad00929b192155deaaf0edc2"
+        }
+      ]
+    },
+    {
+      "accession": "GSE175533",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175533/",
+      "title": [
+        "Revisiting the Hayflick Limit: Insights from an Integrated Analysis of Changing Transcripts, Proteins, Metabolites, and Chromatin"
+      ],
+      "design": [
+        "WI-38 cells were grown and sampled during approach to replicative senescence for use in RNA-seq, scRNA-seq and ATAC-seq. Samples were matched with hTERT immortalized counterparts. Further controls for slowed growth (cell density) and DNA damage (radiation-RIS) were included for bulk RNA-seq."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA732700"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "ATAC-seq",
+        "RNA-Seq"
+      ],
+      "n_samples": 147,
+      "metadata_sha256": "a23d6b6626883325f6a8c160f8e66512f24a29558746a9e46ddba06b12a1a1a9",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE175533_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175533/suppl/GSE175533_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "GSE175533_atac_peaks_sig.xlsx",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175533/suppl/GSE175533_atac_peaks_sig.xlsx",
+          "sha256": null
+        },
+        {
+          "filename": "GSE175533_atlas.bed.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175533/suppl/GSE175533_atlas.bed.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE175533_hTERT.RS.RIS.CD.TPM_table.xlsx",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175533/suppl/GSE175533_hTERT.RS.RIS.CD.TPM_table.xlsx",
+          "sha256": "29e250e8056e821db648959502f0bb0cf35c62ee27686ff465a5460082012496"
+        },
+        {
+          "filename": "GSE175533_sceasy_hay.h5ad.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175533/suppl/GSE175533_sceasy_hay.h5ad.gz",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175533/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE176317",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176317/",
+      "title": [
+        "FOS Guards Quiescence and Potency in Human Hematopoietic Stem Cells [RNA-seq]"
+      ],
+      "design": [
+        "We compared the transcriptome of  the eGFP+ and  FOS/eGFP- hematopoietic stem cells by RNA-Seq"
+      ],
+      "relations": [
+        "SubSeries of: GSE176318",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA735761",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP323073"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 6,
+      "metadata_sha256": "3a2a1b299519873d69ce6a21b5bd519a3c454bd4f85332991e148741e16bd10b",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE176317_tpm.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176317/suppl/GSE176317_tpm.txt.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE176366",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176366/",
+      "title": [
+        "Environmental-mediated vincristine drug resistance of  human precursor B-acute lymphoblastic leukemia (pre-B ALL)"
+      ],
+      "design": [
+        "ICN13 PDX/patient-derived pre-B ALL cells were grown in co-culture with mitotically inactivated OP9 bone marrow stromal cells. Cells cultured with 2 nM vincristine or 4 nM were collected from triplicate wells for RNA isolation at day 18 and d30, respectively, along with controls cultured for the same period of time but without drug. At the time of cell harvest, total cell counts were increasing in the vincristine-treated samples and their viability (% of \\Trypan-blue excluding cells/total cell number) was >70%."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA736020",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP323206"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 12,
+      "metadata_sha256": "9a5232e7ffb36bbc910d47b6f08646a82fa8eae256dd79c2e40d15fb744a91a9",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE176366_Gene_rawcounts_vincristine.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176366/suppl/GSE176366_Gene_rawcounts_vincristine.txt.gz",
+          "sha256": "7f31a841f41db6d4ef917c1018d699d4391de8610a9048bc9b1abf151d26d089"
+        }
+      ]
+    },
+    {
+      "accession": "GSE184821",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184821/",
+      "title": [
+        "Fasting Induces a Highly Resilient Deep Quiescent State in Muscle Stem Cells via Ketone Body Signaling"
+      ],
+      "design": [
+        "Skeletal muscle stem cells (MuSCs) were isolated by FACS from wild type mice that were treated with either ketone bodies or PBS processed for RNA-seq."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA766606",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP338858"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 8,
+      "metadata_sha256": "6dd75f27ea60dbe1acb1e98d758a880a1e078fa14c06f4501fdf728c896a63a9",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE184821_NormalizedReadsBenjaminSeq.xlsx",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184821/suppl/GSE184821_NormalizedReadsBenjaminSeq.xlsx",
+          "sha256": "4dfff9e6bd8633dfef00a4ca705f7e16d922a405faddb40acea7b192bf54111b"
+        }
+      ]
+    },
+    {
+      "accession": "GSE185815",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185815/",
+      "title": [
+        "Comparative RNAseq Between Killifish Species"
+      ],
+      "design": [
+        "Single timepoint examination the global gene expression changes during pre-diapuase development in the African turquoise killifish, the red-striped, and the lyretail killifish."
+      ],
+      "relations": [
+        "SubSeries of: GSE185817",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA770916",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP341180"
+      ],
+      "species": [
+        "Aphyosemion australe",
+        "Iconisemion striatum",
+        "Nothobranchius furzeri"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 145,
+      "metadata_sha256": "f3fcc11a947195808bd70690310f5ed6c9ded77c38da50ccb806141cbeea16bd",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE185815_Aaus_Astr_preDia_Readcounts.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185815/suppl/GSE185815_Aaus_Astr_preDia_Readcounts.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE185815_Nfur_preDia_Readcounts.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185815/suppl/GSE185815_Nfur_preDia_Readcounts.csv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE189073",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/",
+      "title": [
+        "Transcriptome sequencing analysis of satellite cells by RNA-seq"
+      ],
+      "design": [
+        "To understand the transcriptomic changes of  satellite cells during quiescence exit and regeneration, we performed time-course RNA-seq of satellite cells injured for different time points from mouse hindlimb using PFA perfusion-based sorting scheme.",
+        "The polyA+ RNA from fix-sort satellite cells were sequenced using DNBSEQ-G400 sequencer (BGI)"
+      ],
+      "relations": [
+        "SubSeries of: GSE189074",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA781463",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP346716"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 30,
+      "metadata_sha256": "d191190084a8421422f7b59481a92ba815ab13f6e09b3ecc0e6d9bcc30af3c0e",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE189073_activation.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/suppl/GSE189073_activation.csv.gz",
+          "sha256": "250c3fd37c40490e687d637f2ab2ea4216f7268db862c8ad212a2c40b89b01d6"
+        },
+        {
+          "filename": "GSE189073_aging.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/suppl/GSE189073_aging.csv.gz",
+          "sha256": "66c77e1055c02fdbeb3fe6c3aea4ff1e6e490c6a6b837554b9fb021ed1837da3"
+        },
+        {
+          "filename": "GSE189073_regeneration.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189073/suppl/GSE189073_regeneration.csv.gz",
+          "sha256": "16d6da4e4bb8a1f2e22a195ec2ee7c66068f8f13c77c1c6db1fb27cad263bbab"
+        }
+      ]
+    },
+    {
+      "accession": "GSE189074",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189074/",
+      "title": null,
+      "design": null,
+      "relations": null,
+      "species": null,
+      "assays": null,
+      "n_samples": null,
+      "metadata_sha256": null,
+      "status": "failed",
+      "files": []
+    },
+    {
+      "accession": "GSE190765",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190765/",
+      "title": [
+        "Rb family proteins are master regulators of the molecular signatures instructing the quiescent and activated adult neural stem cell state"
+      ],
+      "design": [
+        "Six samples total; three biological replicates were analyzed for each of two conditions (two genotypes; three replicates per genotype)"
+      ],
+      "relations": [
+        "SubSeries of: GSE190766",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA788447"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 6,
+      "metadata_sha256": "51757739923a85e38252b2e0b1654160dcb643278524b55de1a8a59c6961870b",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE190765_FDSC_FC.Batch.IHW.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190765/suppl/GSE190765_FDSC_FC.Batch.IHW.csv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE193258",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE193nnn/GSE193258/",
+      "title": [
+        "The landscape of therapeutic vulnerabilities in EGFR inhibitor osimertinib drug tolerant persister cells [RNA-seq]"
+      ],
+      "design": [
+        "The NSCLC EGFR mutant cell lines (PC9, NCI-H1975, HCC827, and HCC2935) were treated with 500 nM osimertinib for 21 days (osimertinib DTPs). Cells were either harvested immediately or washed 2x with PBS and then replaced with drug-free media for a further 24 hrs. (short washout), or for a longer time-point (long washout) until exponential cell proliferation resumed (PC9: 7 days; NCI-H1975: 3 days; HCC827: 4 days; HCC2935: 10 days) and then harvested. In parallel, parental cell lines were grown in drug-free media for 21 days then treated with 500 nM osimertinib for 24 hrs. (osimertinib acute) or vehicle DMSO control for 24 hrs. (DMSO control).   Experiment was done using biological triplicates. There are 60 total RNA-seq samples."
+      ],
+      "relations": [
+        "SubSeries of: GSE193259",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA795502"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 60,
+      "metadata_sha256": "5f64725f8bbb5c23cd976789356391c00dfb40e601a514230be96fa71c03a33c",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE193258_RNAseq_estimated_counts.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE193nnn/GSE193258/suppl/GSE193258_RNAseq_estimated_counts.tsv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE193258_RNAseq_log2TPM_abundance.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE193nnn/GSE193258/suppl/GSE193258_RNAseq_log2TPM_abundance.tsv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE199716",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE199nnn/GSE199716/",
+      "title": [
+        "Drug tolerant persisters in erlotinib treated EGFR-mutated lung adenocarcinoma arise from pre-existing tumor cells and survive in an adapted stromal microenvironment [RNA-seq]"
+      ],
+      "design": [
+        "single Cell RNAseq was performed on  Baseline(BL) and  DTP tumor"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA821227"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 2,
+      "metadata_sha256": "9a81c8a532bd7135cc2436544db59bd276b9433708f59bb2d10ef921ebc18e72",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE199716_DTP_BL_137_human.data.matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE199nnn/GSE199716/suppl/GSE199716_DTP_BL_137_human.data.matrix.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE199716_DTP_BL_137_human.metadata.matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE199nnn/GSE199716/suppl/GSE199716_DTP_BL_137_human.metadata.matrix.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE199716_DTP_BL_137_mouse.data.matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE199nnn/GSE199716/suppl/GSE199716_DTP_BL_137_mouse.data.matrix.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE199716_DTP_BL_137_mouse.metadata.matrix.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE199nnn/GSE199716/suppl/GSE199716_DTP_BL_137_mouse.metadata.matrix.csv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE213459",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213459/",
+      "title": [
+        "Cellular responses to long-term phosphate starvation of fission yeast: Maf1 determines fate choice between quiescence and death associated with aberrant tRNA biogenesis"
+      ],
+      "design": [
+        "13 test samples and 1 control sample was processed (each sample has 3 replicate experiments)"
+      ],
+      "relations": [
+        "SubSeries of: GSE217953",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA880878"
+      ],
+      "species": [
+        "Schizosaccharomyces pombe"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 14,
+      "metadata_sha256": "7ba4fe3d6c61ca5d28a71dfc10daaa24c57f120d8eb0c88e96dff6afcbb9ff12",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE213459_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213459/suppl/GSE213459_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "GSE213459_count_matrix_phosphate_starvation.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213459/suppl/GSE213459_count_matrix_phosphate_starvation.txt.gz",
+          "sha256": "e9ba15f7fd37338248d26e9ddf5e3ec190edfcfb9b6f49593bfa09f3b6580f9f"
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE213nnn/GSE213459/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE220804",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE220nnn/GSE220804/",
+      "title": [
+        "Molecular mechanism of mice embryonic diapause induction by nutrient deprivation"
+      ],
+      "design": [
+        "Comparative gene expression profiling analysis of RNA-seq data for ND blastocysts at E4.5, DIA, Sta, K-PC, and K+0.02 blastocysts at E5.5 (E4.5, DIA, Sta, K-PC, and K+0.02)"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA911581"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 13,
+      "metadata_sha256": "0c5e8795bb1e6e5359198e7623115bc774f3651f227346524e26f4928299cd57",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE220804_diapause_processed_data.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE220nnn/GSE220804/suppl/GSE220804_diapause_processed_data.txt.gz",
+          "sha256": "28c674f4a33e2e321500d8db05335ba9c2222fe25f4613604b1ad7c7af3c6865"
+        }
+      ]
+    },
+    {
+      "accession": "GSE221470",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE221nnn/GSE221470/",
+      "title": [
+        "TET activity propagates transcriptional memory through embryonic dormancy"
+      ],
+      "design": [
+        "Refer to individual Series"
+      ],
+      "relations": [
+        "SuperSeries of: GSE221465",
+        "SuperSeries of: GSE221466",
+        "SuperSeries of: GSE221467",
+        "SuperSeries of: GSE221468",
+        "SuperSeries of: GSE221469",
+        "SuperSeries of: GSE245229",
+        "SuperSeries of: GSE245230",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA914421"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "ATAC-seq",
+        "Bisulfite-Seq",
+        "OTHER",
+        "RNA-Seq"
+      ],
+      "n_samples": 266,
+      "metadata_sha256": "3dac66b6069d41f942d804fd22df4796dbd5397db5bda8745216deed7948c9ff",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE221470_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE221nnn/GSE221470/suppl/GSE221470_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE221nnn/GSE221470/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE223093",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE223nnn/GSE223093/",
+      "title": [
+        "Autofluorescence is a biomarker of neural stem cell activation state [Subventricular zone]"
+      ],
+      "design": [
+        "Subventricular zone neural stem cells were dissected and purified from 8 male C57BL6/J mice from Envigo on 3 separate days of experiments, onto 3 separate sequencing plates. All cells were analyzed together."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA924818"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 3,
+      "metadata_sha256": "28865219675b1474f1c395a08723b209fb67ac9885f9a6113a99341b09bc3757",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE223093_CEL_seq_barcodes.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE223nnn/GSE223093/suppl/GSE223093_CEL_seq_barcodes.tsv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE223093_UWM-DM-s011_012_013_R2.Transcript_counts.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE223nnn/GSE223093/suppl/GSE223093_UWM-DM-s011_012_013_R2.Transcript_counts.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE223093_filtered_counts.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE223nnn/GSE223093/suppl/GSE223093_filtered_counts.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE223093_metadata_percell.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE223nnn/GSE223093/suppl/GSE223093_metadata_percell.csv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE226225",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE226nnn/GSE226225/",
+      "title": [
+        "Single-cell transcriptomic analysis uncovers diverse and dynamic senescent cell populations"
+      ],
+      "design": [
+        "WI-38 proliferating (PDL 24, CTRL) fibroblasts were grown until their replicative potential was exhausted (PDL 57) and they reached replicative senescence (RS), exposed to 10 Gray of Ionizing Radiation (IR) then cultured 10 days, treated with 50 μM Etoposide (ETO) for 10 days. Additionally, WI-38 cells were either treated with DMSO or 50 μM etoposide and collected at 0 (untreated) 1, 2, 4, 7, and 10 days after treatment. Then, cells were analyzed using single-cell RNA sequencing."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA939187"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 13,
+      "metadata_sha256": "77fb0f2b55390b6a7fd55bf763a6bda124d9b1938f30bc780fb4994a1f9f02a9",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE226225_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE226nnn/GSE226225/suppl/GSE226225_RAW.tar",
+          "sha256": "d17f787c6176c044f732948fbf2bd2330a0f9e16799f629ad0a66275a9eb7e9f"
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE226nnn/GSE226225/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE241462",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241462/",
+      "title": [
+        "A single cell altas of mouse embryonic diapause and peri-implantation development"
+      ],
+      "design": [
+        "Approximately 200~250 blastocysts from each developmental stage – E4.5, EDG7.5, EDG9.5 and Reactivated and 50 embryos from E5.5 stage were collected and analyzed using sc-RNA seq."
+      ],
+      "relations": [
+        "SubSeries of: GSE241463",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1008213"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 4,
+      "metadata_sha256": "808c94fa53e637d5f0f0a156967c20bf33e97d60b4db98d51e1b24fdf1f759bb",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE241462_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241462/suppl/GSE241462_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241462/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE246690",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE246nnn/GSE246690/",
+      "title": [
+        "Transcriptomic analysis of therapy-induced senescent and diapause-like cancer cells"
+      ],
+      "design": [
+        "Senescence was induced by treating SK-MEL-147 and A549 cells with doxorubicin and palbociclib. The diapause-like state was induced by treating SK-Mel-103 and A549 with INK128. Cells were collected 7 days after the beginning of the treatment and RNA was extracted."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1034135"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 32,
+      "metadata_sha256": "1dac6d88e3442de59686bcb595317190703b26367c83bf84186b074b4a4441d7",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE246690_vramponi_202207_rnaseq_raw_counts.xlsx",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE246nnn/GSE246690/suppl/GSE246690_vramponi_202207_rnaseq_raw_counts.xlsx",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE255958",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE255nnn/GSE255958/",
+      "title": [
+        "Focal adhesion kinase-YAP signaling axis drives drug-tolerant persister cells and residual disease in NSCLC"
+      ],
+      "design": [
+        "RNA sequencing in (1) EGFR-mutant PC9 cells, ALK fusion-positive H3122 cells, and KRAS-mutant H358 cells upon drug treatment. The following conditions are available per each cell line: treatment with 0.1 % DMSO for 48 hours in parental cells, treatment with targeted inhibitor for 48 hours in parental cells, treatment with targeted inhibitor for ≥ 9 days in persister cells, treatment with targeted inhibitor in acquired resistant cells. Relates to Fig. 2o, Supplemental Fig. 2d.  (2) Isogenic EGFR-mutant PC9-C2 and H1975-B10 prior to treatment (t0) and in osimertinib persisters (d9).  (3) EGFR-mutant PC9 cells comparing empty vector control cells (EV), YAP-WT overexpressing cells, hyperactive YAP-5SA overexpressing cells, and inactive YAP-S94A cells.  (4) EGFR-mutant PC9 osimertinib persister cells and ALK fusion-positive H3122 alectinib persister cells upon combinatorial treatment with TEAD inhibitor VT104. Relates to Suppl. Figure 4: Gene set enrichment analysis (GSEA) was performed using the YAP-5SA_UP gene set (Supplementary Table 3) on RNAseq expression data from PC9 osimertinib DTPs and H3122 alectinib DTPs, both treated with 10 µM VT104 for 24 h.  (5) EGFR-mutant organoid models TH107 and TH330 comparing cells treated with 0.1% DMSO for 3 days and with 1 µM osimertinib for 11 days; relates to Suppl. Figure 7e: RNAseq expression data of the EGFR-mutant TH107 PDO model, comparing untreated DMSO control (DMSO) versus osimertinib persisters (D9). (6) EGFR-mutant PDX TH021 and ALK fusion-positive LG0812 comparing vehicle and TKI treated tumors at treatment endpoint; relates to Supplemental Fig. 8(d&e): Gene set enrichment analysis for the YAP-5SA_UP gene set (Supplementary Table 3) using RNAseq expression data of the EGFR-mutant TH021 PDX model (d) and ALK fusion-positive LG0812 PDX model (e), comparing vehicle control (VEH) versus treatment group (TKI)."
+      ],
+      "relations": [],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 82,
+      "metadata_sha256": "004cce1f2361c9b1b7775fbf31862937da1e39fafb246286aa2555c88930c9e5",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE255958_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE255nnn/GSE255958/suppl/GSE255958_RAW.tar",
+          "sha256": "c6d27dc5afcfd8b55aba3ed8bc632c6d4a82521da0bb5229aed0fd859b3d82da"
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE255nnn/GSE255958/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE275305",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE275nnn/GSE275305/",
+      "title": [
+        "Chromasome accessibility profiles at single cell level of Drug-tolerant persister cells induced by targeted therapy in lung adenocarcinoma."
+      ],
+      "design": [
+        "PC9 cells were treated with 150nM Osimertinib for 11 days to induce DTP stage. NCI-H358 cells were treated with 500nM Sotorasib for 8 days to induce DTP stage. DTP cells and untreated control cells were collect and undergo sc-ATAC seq.",
+        "",
+        "***************************************************************",
+        "Raw files for human/patient samples are available in dbGaP (https://www.ncbi.nlm.nih.gov/gap/) phs004458.v1.p1 for controlled access to the personally identifiable sequence data.",
+        "***************************************************************"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1150227"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "ATAC-seq"
+      ],
+      "n_samples": 10,
+      "metadata_sha256": "f938638a1e4bd737ac3bf7d7a237c70d044598e6fddcea2ab825a44226d3e8c6",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE275305_H358AMGD8_fragments.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE275nnn/GSE275305/suppl/GSE275305_H358AMGD8_fragments.tsv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE275305_H358DMSO_fragments.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE275nnn/GSE275305/suppl/GSE275305_H358DMSO_fragments.tsv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE275305_PC9Ctrl_fragments.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE275nnn/GSE275305/suppl/GSE275305_PC9Ctrl_fragments.tsv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE275305_PC9Osi_fragments.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE275nnn/GSE275305/suppl/GSE275305_PC9Osi_fragments.tsv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE308970",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE308nnn/GSE308970/",
+      "title": [
+        "Multi-tissue transcriptomic aging atlas reveals predictive aging biomarkers in the killifish"
+      ],
+      "design": [
+        "These samples are to be added to GSE308970. This dataset includes gene expression profiling analysis (by RNA-seq) for FACS-sorted cells from head kidney of male killifish. The protocol included in this metadata file only applies to these five samples below, but not any other sample in the submission."
+      ],
+      "relations": [],
+      "species": [
+        "Nothobranchius furzeri"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 682,
+      "metadata_sha256": "70fc41cd7e87be3fd7712491e7f208187f50dbbb6434d636c9a097a8d3d9d9d8",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE308970_CountsNormDESeq2_KidneyFACS_pilot_lm_241227.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE308nnn/GSE308970/suppl/GSE308970_CountsNormDESeq2_KidneyFACS_pilot_lm_241227.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE308970_Counts_Atlas_allbatches_merged_v3.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE308nnn/GSE308970/suppl/GSE308970_Counts_Atlas_allbatches_merged_v3.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE308970_Counts_KidneyFACS_221025.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE308nnn/GSE308970/suppl/GSE308970_Counts_KidneyFACS_221025.csv.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE308970_TPM_Atlas_allbatches_merged_v3.csv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE308nnn/GSE308970/suppl/GSE308970_TPM_Atlas_allbatches_merged_v3.csv.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE30977",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE30nnn/GSE30977/",
+      "title": [
+        "C. elegans: Dauers and Dauer-Exit at 12 hour time-point vs. Mix-stage worms"
+      ],
+      "design": [
+        "Two-condition experiments.",
+        "Experiment 1 = Dauers vs. Mix-stage worms. 4 biological replicates for each condition, including 2 dye-swaps. ",
+        "Experiment 2 = Dauer-Exit at 12 hour time-point s vs. Mix-stage worms. 4 biological replicates for each condition, including 2 dye-swaps. ",
+        "Total samples from both experiments 1 and 2 = 8."
+      ],
+      "relations": [
+        "SubSeries of: GSE36644",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA155497"
+      ],
+      "species": [
+        "Caenorhabditis elegans"
+      ],
+      "assays": [
+        "array"
+      ],
+      "n_samples": 8,
+      "metadata_sha256": "e0014f7b2781a910fb483d320427bdc2a488ee8c9d384a223a5627c71daa4af7",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE30977_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE30nnn/GSE30977/suppl/GSE30977_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE30nnn/GSE30977/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE3169",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE3nnn/GSE3169/",
+      "title": null,
+      "design": null,
+      "relations": null,
+      "species": null,
+      "assays": null,
+      "n_samples": null,
+      "metadata_sha256": null,
+      "status": "failed",
+      "files": []
+    },
+    {
+      "accession": "GSE31861",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE31nnn/GSE31861/",
+      "title": [
+        "P. pacificus : Dauers and Dauer-Exit at 12 hour time-point vs. Mix-stage worms"
+      ],
+      "design": [
+        "Two-condition experiments.  Experiment 1 = Dauers vs. Mix-stage worms. 4 biological replicates for each condition, including 2 dye-swaps.   Experiment 2 = Dauer-Exit at 12 hour time-point s vs. Mix-stage worms. 3 biological replicates for each condition, including 1 dye-swaps.   Total samples from both experiments 1 and 2 = 7."
+      ],
+      "relations": [
+        "SubSeries of: GSE36644",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA155499"
+      ],
+      "species": [
+        "Pristionchus pacificus"
+      ],
+      "assays": [
+        "array"
+      ],
+      "n_samples": 7,
+      "metadata_sha256": "b0e98abe515138a811c4936dabd43d5bc061f17f8e8c5608084df04a598187b4",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE31861_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE31nnn/GSE31861/suppl/GSE31861_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE31nnn/GSE31861/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE36644",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE36nnn/GSE36644/",
+      "title": [
+        "Pristionchus pacificus and Caenorhabditis elegans: Dauer and Dauer exit versus mix-stage comparisons"
+      ],
+      "design": [
+        "Refer to individual Series"
+      ],
+      "relations": [
+        "SuperSeries of: GSE30977",
+        "SuperSeries of: GSE31861",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA153647"
+      ],
+      "species": [
+        "Caenorhabditis elegans",
+        "Pristionchus pacificus"
+      ],
+      "assays": [
+        "array"
+      ],
+      "n_samples": 15,
+      "metadata_sha256": "8982508681e9e6c24d40c672d2d1e345e8417531e12fc0048dbc9bcb8df2a749",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE36644_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE36nnn/GSE36644/suppl/GSE36644_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE36nnn/GSE36644/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE63577",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE63nnn/GSE63577/",
+      "title": [
+        "RNA-seq of human fibroblasts during replicative senescence"
+      ],
+      "design": [
+        "48 samples: 3 biological replicates for each group: young proliferating and senescent BJ cells;  young proliferating and senescent Wi-38 cells;  young proliferating and senescent IMR-90 cells; 5 population doubling from young proliferating to senescent cell for HFF and MRC-5 cells"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA268292",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP050179"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 48,
+      "metadata_sha256": "97b36366f674ccf166ed1cd556ad5b0061ded1b3e76adcdc4d4ffd9f8012d85f",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE63577_counts_rpkm_exvivo_jenage_data.xls.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE63nnn/GSE63577/suppl/GSE63577_counts_rpkm_exvivo_jenage_data.xls.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE63577_exVivo_counts_RPKMs_II.xls.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE63nnn/GSE63577/suppl/GSE63577_exVivo_counts_RPKMs_II.xls.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE64553",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE64nnn/GSE64553/",
+      "title": [
+        "RNA-seq of human fibroblasts during normal aging and during aging with rotenone perturbation"
+      ],
+      "design": [
+        "60 samples: 3 biological replicates for each group: MRC-5 cells at 4 different population doublings (PD) with and without rotenone; HFF cells at 6 different population doublings with and without rotenone"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA271291",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP051599"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 60,
+      "metadata_sha256": "237f39d779dc1c9504eba34cc6d2f7d2876d11e51454f53b55034347adcb5d7f",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE64553_counts_rpkm_exvivo_rotenone_data.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE64nnn/GSE64553/suppl/GSE64553_counts_rpkm_exvivo_rotenone_data.txt.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE67149",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE67nnn/GSE67149/",
+      "title": [
+        "Strand-Specific RNA Sequencing for wild type and Drpd3 yeast entering quiescence [RNA-seq]"
+      ],
+      "design": [
+        "Strand-specific RNA sequencing was carried out in biological replicate with external controls then transcript abundance was normalized to reflect RNA content per cell."
+      ],
+      "relations": [
+        "SubSeries of: GSE67151",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA279128",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP056417"
+      ],
+      "species": [
+        "Saccharomyces cerevisiae"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 14,
+      "metadata_sha256": "8189a84ff0f02d2cc471e13470ee7d69c60e215ace14a99a117e90c59497703f",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE67149_Normalized_FPKM_Values.xlsx",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE67nnn/GSE67149/suppl/GSE67149_Normalized_FPKM_Values.xlsx",
+          "sha256": "5e6dfa522b5e62cbc990f8de833105fad1358bbb443f18aed1db55d00959bb6b"
+        }
+      ]
+    },
+    {
+      "accession": "GSE74620",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE74nnn/GSE74620/",
+      "title": [
+        "ATRX is necessary for cellular senescence and represses HRAS to drive cells from quiescence into senescence [RNA-Seq]"
+      ],
+      "design": [
+        "mRNA expression profiles were analyzed in dedifferentiated liposarcoma cell lines under cycling, quiescent and senescent (using two unique inducers) conditions via RNA-seq"
+      ],
+      "relations": [
+        "SubSeries of: GSE74621",
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA301012",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP065678"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 12,
+      "metadata_sha256": "ae7775ae86896c4cf9e02e4f646a1d0b8f8eb0907c019ef51f724a4689420937",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE74620_DESeq2_regularized_log_transformed.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE74nnn/GSE74620/suppl/GSE74620_DESeq2_regularized_log_transformed.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE74620_featureCounts_count_matrix.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE74nnn/GSE74620/suppl/GSE74620_featureCounts_count_matrix.txt.gz",
+          "sha256": "be083534986c8a9eb6ceea561b4fec47a39dd5f812e8b888e753260aeca4df29"
+        }
+      ]
+    },
+    {
+      "accession": "GSE81285",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81285/",
+      "title": [
+        "mTor inhibition induces a paused pluripotent state"
+      ],
+      "design": [
+        "Examination of RNA expression profiles of embryonic stem cells in serum, 2i and paused states by RNA-seq"
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA321187",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP074763"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 9,
+      "metadata_sha256": "f43222188b91617805bdfa1a0f1edf9a71453d58c260be115931d4bd66144330",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE81285_RNA-seq_expression_mm10.tsv.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81285/suppl/GSE81285_RNA-seq_expression_mm10.tsv.gz",
+          "sha256": "aec82932f268a04434479b69bd243ce00a0af0eb9c080ab75a8a9f8a33bedb88"
+        }
+      ]
+    },
+    {
+      "accession": "GSE83142",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/",
+      "title": [
+        "Identification of rare, dormant and therapy resistant stem cells in acute lymphoblastic leukemia"
+      ],
+      "design": [
+        "Gene expression profiles from two PDX ALL Samples (ALL-199 & ALL-265) were generated for either dormant (LRC) vs. dividing (non-LRC) cells or drug treated vs. non-treated cells. For single cell analysis one mouse were analyzed for each condition."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA325123",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP076334"
+      ],
+      "species": [
+        "Homo sapiens"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 228,
+      "metadata_sha256": "0e9f28c361b0c7e521e214d1cee2b1a6de2525fcb11835a11662228bfbe99aa0",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE83142_ALL199_MRD_counts.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/GSE83142_ALL199_MRD_counts.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE83142_LRCptsc.counts.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/GSE83142_LRCptsc.counts.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE83142_MRD199bulk.counts.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/GSE83142_MRD199bulk.counts.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE83142_PatientMRD.counts.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/GSE83142_PatientMRD.counts.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE83142_RAW.tar",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/GSE83142_RAW.tar",
+          "sha256": null
+        },
+        {
+          "filename": "GSE83142_StemBbulkLRC.counts.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/GSE83142_StemBbulkLRC.counts.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE83142_single_cell_countdata_LRC_validcells.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/GSE83142_single_cell_countdata_LRC_validcells.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "filelist.txt",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE83nnn/GSE83142/suppl/filelist.txt",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE84158",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84158/",
+      "title": [
+        "Transcriptome changes during the differentiation of myoblasts into myotubes"
+      ],
+      "design": [
+        "RNA-seq of myoblasts, myotubes that were not treated with AraC (Day3) and myotubes which were treated with AraC (Day7). Two replicates per sample type."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA328159",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP078068"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "RNA-Seq"
+      ],
+      "n_samples": 6,
+      "metadata_sha256": "8ddbc3356a12af39b23c851f4c8fa17031285cc6ba79b3dbaad1cb0322c3d4a5",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE84158_gene_exp.diff.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84158/suppl/GSE84158_gene_exp.diff.gz",
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "accession": "GSE84279",
+      "base_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84279/",
+      "title": [
+        "Linkages between 3D genome organization and transcriptome during muscle cell development"
+      ],
+      "design": [
+        "C2C12 cells were either harvested as: 1) proliferating myoblasts (Myoblasts); 2) myotubes that were not treated with AraC (as such these myotubes contained myoblasts) - Myotubes(Day3); or 3) myotubes which were treated with AraC (myoblasts were largely depleted from these myotube cultures; Myotubes(Day7+AraC)."
+      ],
+      "relations": [
+        "BioProject: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA328513",
+        "SRA: https://www.ncbi.nlm.nih.gov/sra?term=SRP078276"
+      ],
+      "species": [
+        "Mus musculus"
+      ],
+      "assays": [
+        "OTHER"
+      ],
+      "n_samples": 6,
+      "metadata_sha256": "cb9d5f2dddfdc4a829b2706a95289c39fcc2eb53725244ee4d4a1c94602d0a7a",
+      "status": "metadata_downloaded",
+      "files": [
+        {
+          "filename": "GSE84279_Myoblasts_Interaction_Matrix_Corr_500kb.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84279/suppl/GSE84279_Myoblasts_Interaction_Matrix_Corr_500kb.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE84279_Myotubes_Day3_Interaction_Matrix_Corr_500kb.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84279/suppl/GSE84279_Myotubes_Day3_Interaction_Matrix_Corr_500kb.txt.gz",
+          "sha256": null
+        },
+        {
+          "filename": "GSE84279_Myotubes_Day7_Interaction_Matrix_Corr_500kb.txt.gz",
+          "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84279/suppl/GSE84279_Myotubes_Day7_Interaction_Matrix_Corr_500kb.txt.gz",
+          "sha256": null
+        }
+      ]
+    }
+  ]
+}

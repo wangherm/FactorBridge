@@ -1,5 +1,7 @@
 # FactorBridge
 
+本轮公共数据扩展与直接训练入口见 [PUBLIC_EXPANDED_TRAINING.md](docs/PUBLIC_EXPANDED_TRAINING.md)：复用实际通过的 GPU smoke，公共研究按 train/validation 分组，内部 killifish 留作最终 frozen test。全目录下载与可训练数据纳入状态分开报告。
+
 从 noisy expression 中恢复可复核的 biological factors，并研究跨物种 factor identity。
 
 **当前状态：工程实现、受控模拟测试与真实公共数据的训练前准备；没有执行真实 Qwen GPU 训练，也没有已训练 adapter 或生物学增益结论。**
