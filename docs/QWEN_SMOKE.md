@@ -36,6 +36,8 @@ bash scripts/smoke_qwen_offline.sh runs/pretraining_20260930T173002_680253Z/conf
 
 ## 查看结果或恢复失败
 
+出现 `Save/reload logits differ` 时，按 [QLoRA 重载精度修复](SMOKE_RELOAD_FIX.md) 保留失败现场并重跑；不降低通过阈值。
+
 - 启动器日志：`runs/qwen_smoke_launcher_<时间>_<PID>/console.log`。
 - 权重下载/校验记录：`$HF_HOME/factorbridge_downloads/<时间>.json`。
 - 模型 smoke 状态：原 run 的 `smoke/status.json`；成功必须为 `passed`，包含 reload delta、实际显存峰值和优化步数。

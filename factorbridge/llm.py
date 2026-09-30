@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import gc
+import hashlib
 import json
 import re
 import time
@@ -62,13 +63,16 @@ def load_model(c, adapter=None, trainable=True):
     if tok.pad_token_id is None:
         tok.pad_token = tok.eos_token
     base = AutoModelForCausalLM.from_pretrained(c["model_name"], revision=c["model_revision"],
-             quantization_config=quant, torch_dtype=dtype, device_map={"": 0}, trust_remote_code=False, attn_implementation="sdpa")
+             quantization_config=quant, dtype=dtype, device_map={"": 0}, trust_remote_code=False, attn_implementation="sdpa")
     base.config.use_cache = not trainable
-    if trainable and c["load_in_4bit"]:
-        base = prepare_model_for_kbit_training(base, use_gradient_checkpointing=c["gradient_checkpointing"])
+    if c["load_in_4bit"]:
+        # PEFT also upcasts non-Params4bit floating weights to FP32. Apply the
+        # same precision recipe to train, reloaded adapters and frozen Qwen.
+        base = prepare_model_for_kbit_training(base,
+            use_gradient_checkpointing=trainable and c["gradient_checkpointing"],
+            gradient_checkpointing_kwargs={"use_reentrant": False})
     elif trainable and c["gradient_checkpointing"]:
-        base.gradient_checkpointing_enable()
-        base.enable_input_require_grads()
+        base.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     if adapter:
         model = PeftModel.from_pretrained(base, str(adapter), is_trainable=trainable)
     elif trainable:
@@ -140,7 +144,9 @@ def batch(rows, torch, pad_id=0):
 def save(model, tok, path, c, head=None):
     path = Path(path)
     path.mkdir(parents=True, exist_ok=True)
-    model.save_pretrained(path, safe_serialization=True)
+    # This pipeline never resizes the vocabulary or trains embedding weights.
+    # Avoid PEFT's online vocabulary-size probe when saving an offline adapter.
+    model.save_pretrained(path, safe_serialization=True, save_embedding_layers=False)
     tok.save_pretrained(path)
     write_json(path / "resolved_config.json", c)
     write_json(path / "contract.json", {"system_prompt": SYSTEM, "schema_version": "stage1-v1", "annotation_version": "none", "chat_template": tok.chat_template})
@@ -169,6 +175,20 @@ def step(model, opt, rows, torch, micro_batch_size=1, pad_id=0, c=None, head=Non
     torch.nn.utils.clip_grad_norm_(parameters, 1.0)
     opt.step()
     return float(np.mean(losses))
+
+
+def reload_fingerprint(model, torch):
+    """Record runtime precision and exact adapter bytes, without hashing all base weights."""
+    parameters, adapters = {}, {}
+    for name, p in model.named_parameters():
+        parameters[name] = {"dtype": str(p.dtype), "shape": list(p.shape), "class": type(p).__name__}
+        if "lora_" in name:
+            raw = p.detach().cpu().contiguous().view(torch.uint8).numpy().tobytes()
+            adapters[name] = {**parameters[name], "sha256": hashlib.sha256(raw).hexdigest()}
+    if not adapters:
+        raise RuntimeError("No LoRA tensors available for serialization check")
+    return {"parameters": parameters, "adapter_tensors": adapters,
+            "quantized_compute_dtypes": {n: str(m.compute_dtype) for n, m in model.named_modules() if hasattr(m, "compute_dtype")}}
 
 
 def smoke(c):
@@ -208,7 +228,9 @@ def smoke(c):
     model.eval()
     b = batch(rows["train"][0], torch)
     with torch.no_grad():
-        before = model(**b).logits[:, -1, :].float().cpu()
+        before = model(**b, use_cache=False).logits[:, -1, :].float().cpu()
+    before_fingerprint = reload_fingerprint(model, torch)
+    write_json(root / "before_reload_fingerprint.json", before_fingerprint)
     save(model, tok, root / "adapter", c, head)
     head_state = {k: v.detach().cpu().clone() for k, v in head.state_dict().items()} if head is not None else None
     del opt, parameters, model, b, head
@@ -222,9 +244,22 @@ def smoke(c):
             raise RuntimeError("Distillation head save/reload mismatch")
     model.eval()
     with torch.no_grad():
-        after = model(**batch(rows["train"][0], torch)).logits[:, -1, :].float().cpu()
+        after = model(**batch(rows["train"][0], torch), use_cache=False).logits[:, -1, :].float().cpu()
+    after_fingerprint = reload_fingerprint(model, torch)
+    write_json(root / "after_reload_fingerprint.json", after_fingerprint)
     delta = float((before - after).abs().max())
-    if not torch.allclose(before, after, rtol=0.01, atol=0.05):
+    allclose = torch.allclose(before, after, rtol=0.01, atol=0.05)
+    precision_equal = (before_fingerprint["parameters"] == after_fingerprint["parameters"] and
+                       before_fingerprint["quantized_compute_dtypes"] == after_fingerprint["quantized_compute_dtypes"])
+    adapter_equal = before_fingerprint["adapter_tensors"] == after_fingerprint["adapter_tensors"]
+    np.savez_compressed(root / "reload_logits.npz", before=before.numpy(), after=after.numpy())
+    write_json(root / "reload_diagnostics.json", {"parameter_structure_and_dtypes_equal": precision_equal,
+               "adapter_tensor_hashes_equal": adapter_equal, "logits_allclose": allclose,
+               "max_abs_delta": delta, "mean_abs_delta": float((before - after).abs().mean()),
+               "rtol": 0.01, "atol": 0.05, "use_cache_for_both_forwards": False, "example_split": "train"})
+    if not precision_equal or not adapter_equal:
+        raise RuntimeError("Save/reload parameter precision or adapter bytes differ; see reload_diagnostics.json")
+    if not allclose:
         raise RuntimeError(f"Save/reload logits differ: {delta}")
     write_json(root / "status.json", {"status": "passed", "signature": sig, "dtype": dtype,
                "reload_max_abs_delta": delta, "trainable_parameters": sum(trainable.values()),

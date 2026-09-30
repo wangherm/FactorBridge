@@ -19,8 +19,9 @@ class Response(io.BytesIO):
 class ModelDownload(unittest.TestCase):
     @unittest.skipUnless(os.name == 'posix' and shutil.which('bash'), 'Shell syntax checked on Linux CI')
     def test_smoke_launcher_shell_syntax(self):
-        path = Path(__file__).resolve().parents[1] / 'scripts/smoke_qwen_offline.sh'
-        subprocess.run(['bash', '-n', str(path)], check=True, capture_output=True)
+        for path in sorted((Path(__file__).resolve().parents[1] / 'scripts').glob('*.sh')):
+            with self.subTest(script=path.name):
+                subprocess.run(['bash', '-n', str(path)], check=True, capture_output=True)
 
     def item(self, content):
         return {'name': 'fixture.bin', 'size': len(content), 'sha256': hashlib.sha256(content).hexdigest()}
