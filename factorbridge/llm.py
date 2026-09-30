@@ -85,6 +85,8 @@ def load_model(c, adapter=None, trainable=True):
 
 
 def training_data(c, tok):
+    if c.get("pilot_only"):
+        raise ValueError("Single-study pilot has no independent validation; add independent studies before Qwen training")
     root, _ = prepared(c)
     cards = {r["example_id"]: r["card"] for r in read_jsonl(root / "cards.jsonl")}
     label_rows = {r["example_id"]: r for r in read_jsonl(root / "private/labels.jsonl")}

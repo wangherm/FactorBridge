@@ -8,7 +8,29 @@ import numpy as np
 
 from .data import manifest, load_dataset, local_split, preprocess, ROLES, assert_lineage
 from .factors import candidates, card
-from .io import write_json, write_jsonl, digest, sha256
+from .io import read_jsonl, write_json, write_jsonl, digest, sha256
+
+
+def supervision_audit(c):
+    """Training-side label availability; does not inspect validation or test labels."""
+    from collections import Counter
+    from .llm import prepared
+    root, _ = prepared(c)
+    train_ids = {r["example_id"] for r in read_jsonl(root / "private/lineage.jsonl") if r["split"] == "train"}
+    labels = [r for r in read_jsonl(root / "private/labels.jsonl") if r["example_id"] in train_ids]
+    cards = {r["example_id"]: r["card"] for r in read_jsonl(root / "cards.jsonl") if r["example_id"] in train_ids}
+    observed = sum(len(cards[r["example_id"]]["genes"]) if r["gene_supervision"] == "complete" else
+                   len(r["target"]["supported_gene_slots"]) for r in labels)
+    similarities = [r["reference_similarity"] for r in labels if "reference_similarity" in r]
+    result = {"split": "train", "examples": len(labels), "decision_counts": dict(Counter(r["target"]["decision"] for r in labels)),
+              "label_sources": dict(Counter(r["label_source"] for r in labels)), "observed_gene_targets": observed,
+              "non_llm_trainable": observed > 0, "formal_training_readiness": "Not established by this label-availability audit",
+              "reference_similarity_range": [min(similarities), max(similarities)] if similarities else None,
+              "limitations": ["Label availability does not prove supervision quality or satisfy independent-study requirements",
+                              "Unlabeled genes in weak references are not known negatives"],
+              "unavailable_methods": {"non_llm": "No supervised gene observations"} if not observed else {}}
+    write_json(Path(c["run_dir"]) / "supervision_audit.json", result)
+    return result
 
 
 def simulate(destination, seed=42, studies=18):
@@ -113,7 +135,10 @@ def prepare(c, internal=False):
     strata = {(e["species"], e["assay"], e["resolution"], e["data_scale"]) for e in entries}
     if len(strata) != 1:
         raise ValueError("Stage 1 pilot requires a single species/assay/resolution/scale per run")
-    if not internal and {e["role"] for e in entries} != {"public_train", "public_validation", "public_test"}:
+    if c.get("pilot_only"):
+        if internal or len(entries) != 1 or entries[0]["role"] != "public_train" or entries[0]["source_kind"] != "public_real":
+            raise ValueError("pilot_only requires exactly one public real study, entirely in train")
+    elif not internal and {e["role"] for e in entries} != {"public_train", "public_validation", "public_test"}:
         raise ValueError("Independent study roles train/validation/test required; never split views randomly")
     cards, labels, sidecars, splits = [], [], [], []
     root.mkdir(parents=True)

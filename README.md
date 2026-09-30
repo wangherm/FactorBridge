@@ -37,6 +37,8 @@ Stage 1 adapter 完成并通过 GPU smoke test 后，才继续跨物种 SFT。�
 
 ## 快速使用
 
+首次在 AutoDL/JupyterLab 获取私有仓库，或先下载真实公共数据，请从 [公共数据起步](docs/PUBLIC_PILOT.md) 开始。已提供经过文件哈希校验的 GSE124109 下载/转换脚本，以及明确隔离的单研究数值试跑。
+
 在仓库根目录运行，Python 3.10+。核心数值测试只需要 NumPy：
 
 ```bash

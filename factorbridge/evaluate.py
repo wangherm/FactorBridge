@@ -87,6 +87,8 @@ def baselines(c):
 
 
 def freeze(c, baseline_only=False):
+    if c.get("pilot_only"):
+        raise ValueError("Single-study pilot has no independent validation and cannot freeze a test protocol")
     run = Path(c["run_dir"])
     prepared(c)
     report = read_json(run / "evaluation_validation/report.json")
@@ -161,6 +163,8 @@ def ci_by_study(rows, metric, seed):
 
 
 def evaluate(c, split="validation", methods=None, regression_adapter=None, regression_output=None):
+    if c.get("pilot_only") and (split != "train" or regression_adapter is not None or any(m.startswith("qwen") for m in (methods or []))):
+        raise ValueError("Single-study pilot permits numerical train diagnostics only; no independent evaluation or Qwen")
     methods = methods or METHODS[:4]
     if len(set(methods)) != len(methods) or not set(methods) <= set(METHODS):
         raise ValueError("Unknown/duplicate methods")
@@ -302,6 +306,7 @@ def evaluate(c, split="validation", methods=None, regression_adapter=None, regre
             differences[method] = ci_by_study(paired, "delta", c["seed"])
     report = {"config_hash": digest(c), "code_hash": code_hash(), "split": split, "executed_methods": methods,
               "regression_adapter": str(regression_adapter) if regression_adapter else None,
+              "pilot_only": bool(c.get("pilot_only")), "is_independent_evaluation": split != "train",
               "not_executed_methods": [m for m in METHODS if m not in methods], "summary": summary, "paired_recovery_differences": differences,
               "selection_seconds": elapsed, "source_kinds": index["source_kinds"],
               "scientific_status": "requires independent real-study evidence and matched coverage/error analysis; no automatic success claim",
@@ -309,5 +314,10 @@ def evaluate(c, split="validation", methods=None, regression_adapter=None, regre
                               "Raw PCA is an unrefitted diagnostic; all selection methods share support-restricted rank-1 refit",
                               "No AUPRC reported from hard gene selections", "Study bootstrap CI unreliable with very few studies",
                               "Composition not supervised without explicit composition truth", "No external annotation evidence in v0.1"]}
+    if c.get("pilot_only"):
+        report["scientific_status"] = "Single public study, training-fit numerical diagnostic only; no cross-study generalization or causal recovery claim"
+        report["limitations"].append("All references are weak and no model selection is permitted in this diagnostic")
+        if "non_llm" in methods:
+            report["limitations"].append("Non-LLM selector fitted and assessed on same train study")
     write_json(out / "report.json", report)
     return report
