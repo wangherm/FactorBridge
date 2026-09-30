@@ -6,6 +6,7 @@ __pycache__/
 work/
 outputs/
 data/
+assets/qwen3_4b_instruct_2507_tokenizer/
 runs/
 *.npz
 *.npy

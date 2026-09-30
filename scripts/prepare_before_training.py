@@ -16,7 +16,10 @@ def main():
     parser.add_argument("--data-dir", default="data/public/pretraining_panel_v1")
     parser.add_argument("--run-dir")
     parser.add_argument("--skip-tokenizer", action="store_true", help="Explicit text-only run; final report remains blocked for tokenizer checks")
+    parser.add_argument("--tokenizer-dir", help="Explicit hash-verified local tokenizer bundle; no Hub requests")
     args = parser.parse_args()
+    if args.skip_tokenizer and args.tokenizer_dir:
+        parser.error("Choose either --skip-tokenizer or --tokenizer-dir")
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S_%fZ")
     run = Path(args.run_dir or "runs/pretraining_" + stamp).resolve()
     if run.exists():
@@ -56,7 +59,7 @@ def main():
         record("numerical_validation_only", lambda: command("evaluate", ["--split", "validation", "--methods", "pca_raw", "loading_refit", "stability", "non_llm"]))
         token_status = {"status": "explicitly_skipped", "model_weights_loaded": False}
         if not args.skip_tokenizer:
-            token_status = record("tokenizer_length_and_completion_mask_check", lambda: tokenizer_check(c))
+            token_status = record("tokenizer_length_and_completion_mask_check", lambda: tokenizer_check(c, local_dir=args.tokenizer_dir))
         report = readiness(c, quality, token_status)
         lock_environment(run / "requirements.resolved.txt")
         write_json(run / "STOP_BEFORE_TRAINING.json", {"status": "stopped_as_requested", "qwen_training_executed": False,

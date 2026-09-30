@@ -69,6 +69,6 @@ GSE63577 系列的其余 18 个样本不在本次 counts 文件中，明确排�
 
 完整结果还包含 `audit.json`、`prepared/splits.jsonl`、`prepared/private/lineage.jsonl`、`sft_text/`、`sft/lengths.json`、`tokenizer_check.json`、`requirements.resolved.txt`、`pretraining_commands.jsonl` 及 `evaluation_validation/factors/` 下的 W/Z。
 
-tokenizer 网络不可达时保留错误。若只想完成数据诊断，可显式改用 `bash scripts/prepare_before_training.sh --skip-tokenizer`；这种运行的最终状态一定为 `blocked`，不能当作 tokenizer 已通过。修复网络后重跑默认命令即可建立新 run 并复用数据缓存。SHA256 不一致则先调查来源，不能靠修改校验值绕过。
+tokenizer 网络不可达时保留错误，可按 [离线 tokenizer 补查](OFFLINE_TOKENIZER.md) 接着已有 run 完成检查，无需重跑数值流程。若只想完成数据诊断，可显式改用 `bash scripts/prepare_before_training.sh --skip-tokenizer`；这种运行的最终状态一定为 `blocked`，不能当作 tokenizer 已通过。SHA256 不一致则先调查来源，不能靠修改校验值绕过。
 
 本页结束后不要接着运行旧文档中的 `train`。下一步先审查这些报告，再单独安装匹配实际 GPU 的依赖，实际完成加载、前后向、保存重载 smoke，随后才进入训练。正式测试只在冻结后通过 `prepare-public-test` 打开；本脚本不会调用它。
