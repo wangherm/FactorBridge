@@ -4,7 +4,7 @@
 
 还未成功 clone 或尚无公共数据时，先按 [JupyterLab 公共数据起步](PUBLIC_PILOT.md) 操作。该数值 pilot 无需 GPU；以下 GPU 训练流程只用于独立 study 数据划分齐备后的正式配置。
 
-仓库为私有。先用你已授权的 GitHub 登录方式完成 Git 认证；不要把 token 写进代码、聊天或 Git URL。
+仓库已公开，下面的 HTTPS clone/pull 无需账号、密码或 token。
 
 ```bash
 git clone https://github.com/wangherm/FactorBridge.git

@@ -2,13 +2,11 @@
 
 本地先准备代码和公开数据，AutoDL 上由用户自行拉取和下载。无需从 Windows 传输 GitHub 登录凭据。
 
-## 克隆失败的原因
+## 匿名获取代码
 
-`FactorBridge` 是私有仓库。GitHub 的 HTTPS Git 操作已不接受账号密码；出现 `Password` 提示时要使用有仓库读取权限的 personal access token，或使用已经配置好的 SSH/GitHub CLI 登录。Windows 上的登录不会自动出现在 AutoDL 上。不要把 token 写入命令、URL 或 Notebook。
+`FactorBridge` 已按用户要求改为公开仓库。HTTPS clone/pull 无需 GitHub 账号、密码、token 或 SSH key；写入仓库仍需授权。
 
-你贴出的日志表明 clone 没成功；因此 `cd FactorBridge` 失败，pip 随后在 `/root` 中找不到项目。不要继续使用那次误建的 `/root/.venv`；下面显式调用仓库内的 Python。无需删除旧环境。
-
-[GitHub 官方认证说明](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#https)
+此前仓库为私有，clone 未成功，导致后续 `cd FactorBridge` 失败、pip 在 `/root` 中找不到项目。下面显式调用仓库内的 Python，无需使用或删除那次误建的 `/root/.venv`。
 
 ## 在 JupyterLab 的 Terminal 中执行
 
@@ -21,7 +19,7 @@ mkdir -p /root/autodl-tmp
 git clone https://github.com/wangherm/FactorBridge.git /root/autodl-tmp/FactorBridge
 ```
 
-用户名填 `wangherm`；Password 提示里输入 GitHub token，输入过程不回显。也可先用已安装的 `gh auth login` 和 `gh auth setup-git` 登录，再 clone。
+以上公开 HTTPS 地址不需要输入用户名或密码。
 
 以下整段在子 shell 内运行，任何一步失败都会停止，不会接着运行下一步：
 
