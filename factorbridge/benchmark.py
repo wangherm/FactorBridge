@@ -146,6 +146,9 @@ def weak_reference(clean_discovery, units, c, seed):
 
 
 def prepare(c, internal=False, public_test=False):
+    if c.get('semantic'):
+        from .semantic import bundle_for
+        bundle_for(c)
     if public_test:
         if internal or not c.get("defer_public_test"):
             raise ValueError("Explicit deferred public test configuration required")
@@ -213,13 +216,22 @@ def prepare(c, internal=False, public_test=False):
                 noisy, measured, operator = noise_view(raw, e["data_scale"], disc, level, c["missing_fraction"], np.random.default_rng(ds_seed + v + 1))
                 mw = np.flatnonzero(measured)
                 w, z, mean, recur, stable = candidates(noisy[disc], [units[i] for i in disc], c, ds_seed + 100 + v)
+                original_count=w.shape[1]
+                if c.get('semantic'):
+                    from .semantic import programme_candidates
+                    w,z,recur,stable,original_count,added=programme_candidates(noisy[disc],[units[i] for i in disc],
+                        genes[measured],e,c,w,z,recur,stable,ds_seed+100+v)
+                    write_json(root/'private'/f'{ds_key}_v{v:02d}_programme_candidates.json',added)
                 view_id = f"{ds_key}_v{v:02d}"
                 np.savez_compressed(root / "private" / f"{view_id}.npz", X=noisy, measured=measured, genes=genes,
-                                    samples=samples, discovery=disc, heldout=held, W=w, mean=mean)
+                                    samples=samples, discovery=disc, heldout=held, W=w, mean=mean, original_pca_count=original_count)
                 noisy_hash = digest({"shape": list(noisy.shape), "values_sha256": hashlib.sha256(noisy.tobytes()).hexdigest(), "samples": samples.tolist(), "genes": genes[measured].tolist()})
                 for j in range(w.shape[1]):
                     eid = f"{view_id}_c{j:02d}"
                     evidence, idx = card(w[:, j], recur[:, j], stable[j], genes[measured], e, c)
+                    if c.get('semantic'):
+                        from .semantic import enrich_card
+                        evidence, idx = enrich_card(evidence, idx, w[:, j], recur[:, j], genes[measured], e, c)
                     target, quality = label(evidence, idx, mw, w[:, j], tw, axes, e["source_kind"], c, matching_w)
                     if e["source_kind"] != "controlled_simulation":
                         # Stability does not establish causal biology or absence of confounding.
@@ -228,6 +240,7 @@ def prepare(c, internal=False, public_test=False):
                     labels.append({"example_id": eid, "target": target, **quality})
                     sidecars.append({"example_id": eid, "view_id": view_id, "dataset_key": ds_key,
                                      "candidate_index": j, "dataset_id": e["dataset_id"], "study_id": e["study_id"],
+                                     "candidate_origin": "pca" if j<original_count else "noisy_annotation_guided_submodule",
                                      "parent_dataset": e["parent_dataset"],
                                      "parent_factor": [e["parent_dataset"] + f":factor_{q}" for q in range(tw.shape[1])] or [e["parent_dataset"] + ":null"],
                                      "biological_units": [e["study_id"] + ":" + u for u in sorted(set(units))],

@@ -68,6 +68,14 @@ def config(path):
         raise ValueError("Training step/batch/worker counts must be positive")
     if c["learning_rate"] <= 0 or c.get("distillation_lambda", 0) < 0:
         raise ValueError("Invalid learning rate/distillation weight")
+    if c.get('semantic'):
+        s = c['semantic']
+        if c['stage'] != 'noise_recovery' or s['max_genes'] < c['card_genes'] or not 0 < s['enrichment_fdr'] < 1:
+            raise ValueError('Invalid semantic configuration')
+        if s['max_terms'] < 1 or s['description_chars'] < 1 or c['max_length'] < 4096:
+            raise ValueError('Semantic cards need explicit annotation and token budgets')
+        if not 0 <= s.get('extra_candidates',0) <= 8 or s.get('candidate_max_members',0)<c['min_support']:
+            raise ValueError('Invalid annotation-guided candidate budget')
     return c
 
 

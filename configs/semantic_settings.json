@@ -1,0 +1,13 @@
+{
+  "card_genes": 24,
+  "max_length": 16384,
+  "max_new_tokens": 768,
+  "semantic": {
+    "max_genes": 40,
+    "max_terms": 6,
+    "enrichment_fdr": 0.1,
+    "description_chars": 180,
+    "extra_candidates": 4,
+    "candidate_max_members": 120
+  }
+}

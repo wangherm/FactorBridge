@@ -12,7 +12,7 @@ from .io import config, read_json, write_json, environment
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="FactorBridge recovery and cross-species training; no missing-data or CPU-Qwen fallback")
-    parser.add_argument("command", choices=["environment", "audit", "supervision-audit", "simulate", "prepare", "prepare-internal", "prepare-public-test", "baselines", "pin-model", "smoke", "train", "evaluate", "freeze", "import-protein-tokens", "export-factor-teacher", "regression", "ablation-configs", "select-experiment"])
+    parser.add_argument("command", choices=["environment", "audit", "supervision-audit", "simulate", "prepare", "prepare-internal", "prepare-public-test", "baselines", "pin-model", "smoke", "train", "evaluate", "freeze", "import-protein-tokens", "export-factor-teacher", "regression", "ablation-configs", "select-experiment", "programmes", "recover"])
     parser.add_argument("--config", default="configs/stage1.json")
     parser.add_argument("--destination", default="data/controlled_simulation")
     parser.add_argument("--studies", type=int, default=18)
@@ -33,7 +33,17 @@ def main(argv=None):
     try:
         if c.get("pilot_only") and args.command in {"smoke", "train", "freeze", "prepare-internal", "prepare-public-test"}:
             raise ValueError("Single-study numerical pilot only: independent studies required before training or test freezing")
-        if args.command == "export-factor-teacher":
+        if args.command == 'recover':
+            from .recovery import recover
+            if not args.source or not args.methods or len(args.methods)!=1:
+                raise ValueError('--source manifest.json and exactly one --methods value required')
+            result=recover(c,args.source,args.destination,args.methods[0])
+        elif args.command == 'programmes':
+            from .programmes import run_programmes
+            if not c.get('semantic'):
+                raise ValueError('Functional annotation configuration required')
+            result = {'output':str(run_programmes(c,args.split))}
+        elif args.command == "export-factor-teacher":
             from .distill import export_factor_vectors
             if not all([args.source, args.provenance, args.factor_cards]):
                 raise ValueError("--source, --provenance, --factor-cards required")

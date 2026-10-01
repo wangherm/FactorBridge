@@ -15,7 +15,11 @@ def features(card):
         identity[int(hashlib.sha256(g["feature_id"].encode()).hexdigest(), 16) % len(identity)] = 1
         rows.append(np.r_[1., abs(g["signed_loading"]) / maximum, g["signed_loading"],
                           g["noisy_view_recurrence"], stability, 1 / g["loading_rank"], identity])
-    return np.array(rows)
+    numeric = np.array(rows)
+    if card.get('task') == 'recover_semantic_programme':
+        from .semantic import semantic_features
+        return np.column_stack([numeric, semantic_features(card)])
+    return numeric
 
 
 def fit_logistic(x, y, iterations=500):
@@ -67,6 +71,14 @@ def select(card, method, c, learned=None):
         scores = np.array([g["noisy_view_recurrence"] for g in card["genes"]])
         retained = card["replicate_evidence"][0]["bootstrap_cosine"] >= c["stability_threshold"]
         keep = scores >= c["gene_threshold"]
+    elif method == "semantic_prior":
+        terms = card['functional_evidence']['terms']
+        supported = {slot for t in terms if t['q'] <= c['semantic']['enrichment_fdr'] for slot in t['member_slots']}
+        scores = np.array([g['noisy_view_recurrence'] for g in card['genes']])
+        retained = card['replicate_evidence'][0]['bootstrap_cosine'] >= c['stability_threshold']
+        # Unannotated stable factors remain eligible; this policy is explicit.
+        keep = np.array([scores[i] >= c['gene_threshold'] and (not supported or g['slot_id'] in supported)
+                         for i, g in enumerate(card['genes'])])
     elif method == "non_llm":
         scores = predict_logistic(learned["genes"], f)
         retained = predict_logistic(learned["decision"], f.mean(axis=0, keepdims=True))[0] >= c["decision_threshold"]

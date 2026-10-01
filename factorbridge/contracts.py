@@ -14,6 +14,9 @@ SYSTEM = ('Select only evidence-supported measured gene slots for numerical fact
 
 
 def validate_card(c):
+    if c.get("task") == "recover_semantic_programme":
+        from .semantic import validate_semantic
+        return validate_semantic(c)
     if c.get("task") == "cross_species_identity":
         from .cross_species import validate_pair_card
         return validate_pair_card(c)
@@ -72,6 +75,9 @@ def validate_output(o, c, min_support):
 def messages(c):
     validate_card(c)
     system = SYSTEM
+    if c.get("task") == "recover_semantic_programme":
+        from .semantic import SEMANTIC_SYSTEM
+        system = SEMANTIC_SYSTEM
     if c.get("task") == "cross_species_identity":
         from .cross_species import PAIR_SYSTEM
         system = PAIR_SYSTEM

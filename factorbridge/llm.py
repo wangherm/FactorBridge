@@ -105,6 +105,9 @@ def training_data(c, tok):
             return None
         try:
             encoded = encode_completion(tok, cards[eid], labels[eid], c["max_length"], c["min_support"])
+            prompt_length=sum(v == -100 for v in encoded['labels'])
+            if prompt_length+c['max_new_tokens']>c['max_length']:
+                raise ValueError('Prompt plus inference generation budget exceeds max_length')
             encoded["teacher_targets"] = label_rows[eid].get("distillation_targets", {})
         except ValueError as exc:
             return (split, eid, None, str(exc))
@@ -149,7 +152,10 @@ def save(model, tok, path, c, head=None):
     model.save_pretrained(path, safe_serialization=True, save_embedding_layers=False)
     tok.save_pretrained(path)
     write_json(path / "resolved_config.json", c)
-    write_json(path / "contract.json", {"system_prompt": SYSTEM, "schema_version": "stage1-v1", "annotation_version": "none", "chat_template": tok.chat_template})
+    from .semantic import SEMANTIC_SYSTEM
+    write_json(path / "contract.json", {"system_prompt": SEMANTIC_SYSTEM if c.get('semantic') else SYSTEM,
+        "schema_version": "semantic-v1" if c.get('semantic') else "stage1-v1",
+        "annotation_version": c.get('semantic', {}).get('sha256', 'none'), "chat_template": tok.chat_template})
     from .distill import save_head
     save_head(head, path, c)
 

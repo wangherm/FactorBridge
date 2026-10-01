@@ -13,6 +13,7 @@ from .contracts import validate_output
 from .factors import refit, deduplicate
 
 METHODS = ["pca_raw", "loading_refit", "stability", "non_llm", "qwen_frozen", "qwen_finetuned"]
+SEMANTIC_METHODS = METHODS + ['semantic_prior', 'qwen_no_semantics', 'qwen_shuffled_text']
 
 
 def assignment(similarity):
@@ -94,7 +95,7 @@ def freeze(c, baseline_only=False):
     report = read_json(run / "evaluation_validation/report.json")
     if report["config_hash"] != digest(c) or report["code_hash"] != code_hash():
         raise ValueError("Validation evidence stale")
-    if not baseline_only and not all(m in report["executed_methods"] for m in METHODS):
+    if not baseline_only and not all(m in report["executed_methods"] for m in (SEMANTIC_METHODS if c.get('semantic') else METHODS)):
         raise ValueError("Run all methods on validation before freeze, or explicitly use --baseline-only")
     path = run / "frozen_protocol.json"
     if path.exists():
@@ -155,7 +156,7 @@ def oracle(view, truth_w, cards, c):
     return {"candidate_pool_support_recall": float((pool.max(axis=0) > 0).mean()) if n else None,
             "oracle_support_refit_recovery": sum(sims[i, j] >= c["recovery_similarity"] for i, j in pairs) / n if n else None,
             "oracle_definition": "known-support intersection with visible card genes + identical refit; reference-informed comparator, not a mathematical upper bound over all subsets",
-            "raw_candidate_loading_recall": float((cosine(view["W"], t).max(axis=0) >= c["recovery_similarity"]).mean()) if n else None}
+            "raw_candidate_loading_recall": float((cosine(view["W"][:,:int(view.get('original_pca_count',view['W'].shape[1]))], t).max(axis=0) >= c["recovery_similarity"]).mean()) if n else None}
 
 
 def ci_by_study(rows, metric, seed):
@@ -177,7 +178,8 @@ def evaluate(c, split="validation", methods=None, regression_adapter=None, regre
     if c.get("pilot_only") and (split != "train" or regression_adapter is not None or any(m.startswith("qwen") for m in (methods or []))):
         raise ValueError("Single-study pilot permits numerical train diagnostics only; no independent evaluation or Qwen")
     methods = methods or METHODS[:4]
-    if len(set(methods)) != len(methods) or not set(methods) <= set(METHODS):
+    allowed_methods = SEMANTIC_METHODS if c.get('semantic') else METHODS
+    if len(set(methods)) != len(methods) or not set(methods) <= set(allowed_methods):
         raise ValueError("Unknown/duplicate methods")
     if split not in {"train", "validation", "test", "internal_test"}:
         raise ValueError("Evaluation split must be train/validation/test/internal_test")
@@ -209,12 +211,20 @@ def evaluate(c, split="validation", methods=None, regression_adapter=None, regre
     for method in methods:
         started = time.monotonic()
         if method.startswith("qwen"):
-            results = infer(c, [{"example_id": r["example_id"], "card": all_cards[r["example_id"]]} for r in lineage], method, adapter_override=regression_adapter)
+            inputs = [{"example_id": r["example_id"], "card": all_cards[r["example_id"]]} for r in lineage]
+            model_method = method
+            if method in {'qwen_no_semantics', 'qwen_shuffled_text'}:
+                from .semantic import ablate
+                inputs = [dict(r, card=ablate(r['card'], method.removeprefix('qwen_'), c['seed'])) for r in inputs]
+                model_method = 'qwen_finetuned'
+            results = infer(c, inputs, model_method, adapter_override=regression_adapter)
         else:
             results = []
             for r in lineage:
                 eid = r["example_id"]
                 target, scores = select(all_cards[eid], "loading_refit" if method == "pca_raw" else method, c, learned)
+                if method=='pca_raw' and r.get('candidate_origin','pca')!='pca':
+                    target.update(decision='uncertain',supported_gene_slots=[],limitations=['original_pca_comparator'])
                 results.append({"example_id": eid, "valid": True, "output": target, "gene_scores": scores})
         predictions[method] = {r["example_id"]: r for r in results}
         write_jsonl(out / f"predictions_{method}.jsonl", results)
@@ -318,7 +328,7 @@ def evaluate(c, split="validation", methods=None, regression_adapter=None, regre
     report = {"config_hash": digest(c), "code_hash": code_hash(), "split": split, "executed_methods": methods,
               "regression_adapter": str(regression_adapter) if regression_adapter else None,
               "pilot_only": bool(c.get("pilot_only")), "is_independent_evaluation": split != "train",
-              "not_executed_methods": [m for m in METHODS if m not in methods], "summary": summary, "paired_recovery_differences": differences,
+              "not_executed_methods": [m for m in allowed_methods if m not in methods], "summary": summary, "paired_recovery_differences": differences,
               "selection_seconds": elapsed, "source_kinds": index["source_kinds"],
               "scientific_status": "requires independent real-study evidence and matched coverage/error analysis; no automatic success claim",
               "limitations": ["Simulator recovery is not real biological validation", "Real reference agreement is weak-reference consistency",
@@ -330,5 +340,11 @@ def evaluate(c, split="validation", methods=None, regression_adapter=None, regre
         report["limitations"].append("All references are weak and no model selection is permitted in this diagnostic")
         if "non_llm" in methods:
             report["limitations"].append("Non-LLM selector fitted and assessed on same train study")
+    if c.get('semantic'):
+        report['limitations'] = [x for x in report['limitations'] if x != 'No external annotation evidence in v0.1']
+        report['limitations'] += ['Functional annotation is a prior; enriched names are not independent recovery validation',
+            'Semantic runs add noisy annotation-guided submodule candidates; original PCA excludes these extra candidates',
+            'Text ablations are inference interventions on the same adapter, not separately trained ablations',
+            'Positive-unlabeled gene supervision may make the learned gene selector constant; inspect non_llm.json']
     write_json(out / "report.json", report)
     return report

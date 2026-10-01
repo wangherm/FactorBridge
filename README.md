@@ -82,3 +82,9 @@ GPU `smoke` 必须实际完成加载、前后向、优化、保存、重载和 l
 - [UCE 官方实现与输入要求](https://github.com/snap-stanford/UCE)
 
 训练采用 Transformers + PEFT 的显式 SFT 循环，以便直接验证 loss mask 与多教师辅助损失；没有引入 TRL/RL 的额外训练流程。依赖区间是安装约束；实际兼容版本只有 AutoDL smoke 完成后生成的 `requirements.resolved.txt` 才算已验证。
+
+## 功能语义实验（2026-10-01）
+
+新入口 `scripts/run_semantic_pipeline.sh <已完成公共数据训练的config.json>`：官方功能注释、noisy-only 功能候选与富集证据、Qwen QLoRA、同流程 W/Z 重估、九项对照、programme 分数、跨物种功能对应候选，以及按未来时间留出的进程/偏离与状态转移基线。复用已有公共 manifest；内部 killifish 不参与；外层 agent 仅提供函数接口。
+
+完整启动命令、输入/输出、科学限制和世界模型参考见 [运行说明](docs/semantic_pipeline_CN.md)。此版本的发布不表示 AutoDL 新一轮训练已执行或模型已优于基线。
