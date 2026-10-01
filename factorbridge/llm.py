@@ -284,14 +284,25 @@ def verify_training_smoke(c):
         raise RuntimeError("GPU/dependencies changed since the measured smoke; evidence cannot be reused")
     allowed_code = [code_hash()]
     if source["stage"] == "noise_recovery":
-        # ad51e79: measured Qwen NF4/BF16 load/backward/save/reload implementation.
-        allowed_code.append("34dbe91c405ab862eb9bd201c4808a0fc10fa1866fb0b40d5cfa2747e98e3922")
+        # Identical Python ASTs reconstructed from the shipped source ZIP,
+        # offline tokenizer update and reload precision fix. The initial ZIP
+        # retained CRLF; the two incremental updates use LF. code_hash hashes
+        # exact bytes, so accept both audited distributions, not arbitrary code.
+        allowed_code.extend([
+            "34dbe91c405ab862eb9bd201c4808a0fc10fa1866fb0b40d5cfa2747e98e3922",  # all LF
+            "8672b3c228fd827c50148d0f837843f2b0af8f8dc578b35f3c774fb17a32def5",  # original mixed-ending ZIPs
+        ])
     valid = [digest({"config": source, "prepared": index, "code": h,
                      "environment": env, "initial_adapter": {}}) for h in allowed_code]
     if source["stage"] != "noise_recovery":
         valid = [signature(source)]
     if state.get("signature") not in valid:
-        raise RuntimeError("Smoke signature does not match its original data, configuration, code and environment")
+        report = Path(c["run_dir"]) / "smoke_compatibility_failure.json"
+        write_json(report, {"source_run": source["run_dir"], "actual_source_signature": state.get("signature"),
+                   "candidate_signatures": dict(zip(allowed_code, valid)),
+                   "original_prepared_files_verified": True, "environment_matches": True,
+                   "training_started": False, "source_smoke_modified": False})
+        raise RuntimeError(f"Smoke signature does not match its original data, configuration, code and environment; see {report}")
     if c.get("reuse_smoke_config"):
         if source["stage"] != "noise_recovery" or c["stage"] != "noise_recovery":
             raise ValueError("Dataset-only smoke reuse is limited to Stage 1; new teachers require their own evidence")
