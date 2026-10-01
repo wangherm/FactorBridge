@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # 扩展训练的 smoke 签名兼容修复
 
 扩展 run 已完成 PREPARE 并输出 TRAIN_CONFIG 后，在旧 smoke 签名检查处停止。失败发生在加载训练模型、创建 training 目录和 optimizer step 之前。不要重新运行全量启动脚本，不需要重新生成训练卡。

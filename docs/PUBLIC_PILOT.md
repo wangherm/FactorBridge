@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # 公共数据起步与 JupyterLab 操作
 
 本地先准备代码和公开数据，AutoDL 上由用户自行拉取和下载。无需从 Windows 传输 GitHub 登录凭据。

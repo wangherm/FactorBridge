@@ -1,0 +1,334 @@
+{
+  "experiment_id": "E02",
+  "name": "Functional evidence and programme candidates with inherited PCA weak supervision",
+  "source_report_zip": "FactorBridge_semantic_report_20261001T184459Z.zip",
+  "released_code_commit": "d72505a930a6baddc16d297151f57a63db7c8825",
+  "source_zip_sha256": "55af194c6d948abfe50252654988dda10efd448c5d9d48df6ddbf35c39b787f8",
+  "pipeline_completed": true,
+  "exit_code": 0,
+  "training": {
+    "status": "completed",
+    "signature": "271b346742df3691480971ddfef5fcc8da1441f898639ae9235cc2cef0a7d5e8",
+    "best_validation_loss": 0.07628878319103803,
+    "steps": 102,
+    "dtype": "torch.bfloat16",
+    "peak_cuda_bytes": 54155936768,
+    "elapsed_seconds": 5876.7642065659165,
+    "scientific_success": "not_evaluated"
+  },
+  "training_peak_allocated_GiB": 50.436646461486816,
+  "smoke": {
+    "status": "passed",
+    "signature": "271b346742df3691480971ddfef5fcc8da1441f898639ae9235cc2cef0a7d5e8",
+    "dtype": "torch.bfloat16",
+    "reload_max_abs_delta": 0.0,
+    "trainable_parameters": 33030144,
+    "peak_cuda_bytes": 54026601472,
+    "steps": 2
+  },
+  "tokenization": {
+    "count": 598,
+    "maximum": 9433,
+    "rejected": [],
+    "truncation": false
+  },
+  "label_quality": {
+    "train": {
+      "examples": 542,
+      "decisions": {
+        "retain": 159,
+        "uncertain": 383
+      },
+      "positive_gene_targets": 1795,
+      "axis_flags": {},
+      "sources": {
+        "real_weak_reference": 542
+      },
+      "studies": [
+        "GSE113957",
+        "GSE124109",
+        "GSE132040",
+        "GSE189073",
+        "GSE193258",
+        "GSE255958"
+      ]
+    },
+    "validation": {
+      "examples": 56,
+      "decisions": {
+        "retain": 22,
+        "uncertain": 34
+      },
+      "positive_gene_targets": 294,
+      "axis_flags": {},
+      "sources": {
+        "real_weak_reference": 56
+      },
+      "studies": [
+        "GSE167665",
+        "GSE63577"
+      ]
+    }
+  },
+  "comparison": [
+    {
+      "method": "pca_raw",
+      "recovery_recall": 0.0,
+      "mean_loading_similarity_all_references": 0.2011364034356616,
+      "coverage": 0.6089285714285714,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "retain": 32,
+        "uncertain": 24
+      }
+    },
+    {
+      "method": "loading_refit",
+      "recovery_recall": 0.41666666666666663,
+      "mean_loading_similarity_all_references": 0.649849034619757,
+      "coverage": 1.0,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "retain": 56
+      }
+    },
+    {
+      "method": "stability",
+      "recovery_recall": 0.41666666666666663,
+      "mean_loading_similarity_all_references": 0.5899083079222903,
+      "coverage": 0.871875,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "retain": 49,
+        "uncertain": 7
+      }
+    },
+    {
+      "method": "non_llm",
+      "recovery_recall": 0.29166666666666663,
+      "mean_loading_similarity_all_references": 0.3808169440740309,
+      "coverage": 0.2388392857142857,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "retain": 13,
+        "uncertain": 43
+      }
+    },
+    {
+      "method": "semantic_prior",
+      "recovery_recall": 0.20833333333333331,
+      "mean_loading_similarity_all_references": 0.3940605124252534,
+      "coverage": 0.753125,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "retain": 42,
+        "uncertain": 14
+      }
+    },
+    {
+      "method": "qwen_frozen",
+      "recovery_recall": 0.08333333333333333,
+      "mean_loading_similarity_all_references": 0.17027644051752416,
+      "coverage": 0.3866071428571428,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "uncertain": 32,
+        "retain": 24
+      }
+    },
+    {
+      "method": "qwen_finetuned",
+      "recovery_recall": 0.0,
+      "mean_loading_similarity_all_references": 0.0,
+      "coverage": 0.0,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "uncertain": 56
+      }
+    },
+    {
+      "method": "qwen_no_semantics",
+      "recovery_recall": 0.41666666666666663,
+      "mean_loading_similarity_all_references": 0.649849034619757,
+      "coverage": 0.9352678571428572,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "retain": 52,
+        "uncertain": 4
+      }
+    },
+    {
+      "method": "qwen_shuffled_text",
+      "recovery_recall": 0.0,
+      "mean_loading_similarity_all_references": 0.0,
+      "coverage": 0.0,
+      "controlled_null_technical_false_positive": null,
+      "invalid_rate": 0.0,
+      "decisions": {
+        "uncertain": 56
+      }
+    }
+  ],
+  "candidate_pool_by_view": [
+    {
+      "study_id": "GSE63577",
+      "noise_level": 0.0,
+      "candidate_pool_support_recall": 1.0,
+      "oracle_support_refit_recovery": 1.0,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 1.0
+    },
+    {
+      "study_id": "GSE63577",
+      "noise_level": 0.5,
+      "candidate_pool_support_recall": 1.0,
+      "oracle_support_refit_recovery": 1.0,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 1.0
+    },
+    {
+      "study_id": "GSE63577",
+      "noise_level": 1.0,
+      "candidate_pool_support_recall": 1.0,
+      "oracle_support_refit_recovery": 1.0,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 0.0
+    },
+    {
+      "study_id": "GSE63577",
+      "noise_level": 2.0,
+      "candidate_pool_support_recall": 0.6666666666666666,
+      "oracle_support_refit_recovery": 0.0,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 0.0
+    },
+    {
+      "study_id": "GSE167665",
+      "noise_level": 0.0,
+      "candidate_pool_support_recall": 1.0,
+      "oracle_support_refit_recovery": 1.0,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 1.0
+    },
+    {
+      "study_id": "GSE167665",
+      "noise_level": 0.5,
+      "candidate_pool_support_recall": 1.0,
+      "oracle_support_refit_recovery": 1.0,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 0.3333333333333333
+    },
+    {
+      "study_id": "GSE167665",
+      "noise_level": 1.0,
+      "candidate_pool_support_recall": 1.0,
+      "oracle_support_refit_recovery": 0.6666666666666666,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 0.0
+    },
+    {
+      "study_id": "GSE167665",
+      "noise_level": 2.0,
+      "candidate_pool_support_recall": 1.0,
+      "oracle_support_refit_recovery": 0.0,
+      "raw_candidate_loading_recall": 0.0,
+      "recovery_recall": 0.0
+    }
+  ],
+  "label_context_audit": {
+    "train": {
+      "pca": {
+        "retain": 159,
+        "uncertain": 193
+      },
+      "noisy_annotation_guided_submodule": {
+        "uncertain": 190
+      },
+      "no_gene_functions": {
+        "retain": 16
+      },
+      "gene_functions_present": {
+        "retain": 143,
+        "uncertain": 383
+      }
+    },
+    "validation": {
+      "pca": {
+        "retain": 22,
+        "uncertain": 10
+      },
+      "noisy_annotation_guided_submodule": {
+        "uncertain": 24
+      },
+      "no_gene_functions": {},
+      "gene_functions_present": {
+        "retain": 22,
+        "uncertain": 34
+      }
+    }
+  },
+  "time_analysis": {
+    "train": {
+      "views": 88,
+      "executed": 72,
+      "unavailable_reasons": {
+        "no_reviewed_time_recipe": 16
+      },
+      "world_model_executed": false,
+      "by_study": {
+        "GSE124109": {
+          "views": 4,
+          "latent_transition_beats_mean": 1,
+          "quadratic_curve_beats_mean": 0,
+          "scope": "within-study future-time diagnostics; tissues/noise variants are not independent studies"
+        },
+        "GSE132040": {
+          "views": 68,
+          "latent_transition_beats_mean": 11,
+          "quadratic_curve_beats_mean": 0,
+          "scope": "within-study future-time diagnostics; tissues/noise variants are not independent studies"
+        }
+      }
+    },
+    "validation": {
+      "views": 8,
+      "executed": 0,
+      "unavailable_reasons": {
+        "no_reviewed_time_recipe": 8
+      },
+      "world_model_executed": false,
+      "by_study": {}
+    }
+  },
+  "prepared_included_files_hashes_verified": 100,
+  "lineage_checks": "passed",
+  "important_findings": [
+    "All 56 intact-semantic finetuned predictions are uncertain with empty gene support; all eight recovered W matrices have zero columns",
+    "All 190 added programme training candidates and all 24 added validation candidates are uncertain in PCA-derived weak labels",
+    "All 16 training examples with no gene functions are retain; remaining 526 have 143 retain and 383 uncertain",
+    "No-semantics inference retains 52/56; 50 of those select every visible gene. This does not establish successful semantic reasoning",
+    "GSE132040 contributes 424/542 training cards, about 78.2 percent, from one study",
+    "Gene component of non-LLM supervised baseline is a constant-one classifier due to positive-unlabeled supervision",
+    "Nine-method numerical recovery evaluation executed; weak-reference agreement is not biological truth",
+    "No independent validation-study time prediction executed; external world models and internal killifish not used"
+  ],
+  "interpretation": "Engineering execution completed; intact-semantic Qwen selection failed. Annotation/context shortcut is a hypothesis requiring length-matched and controlled ablations, not a proven causal mechanism.",
+  "next_actions": [
+    "Keep numerical recovery as reference and preserve all current results",
+    "Align programme supervision with independently supported modules; do not label all novel directions uncertain solely for failing PCA agreement",
+    "Balance studies and decisions; explicitly model missing annotation without making absence a retain cue",
+    "Select future checkpoints with decision-level and numerical-recovery validation, not token loss alone",
+    "Use paired identical candidate pools with length-matched functional-text controls before scaling training"
+  ],
+  "internal_data_used": false,
+  "external_world_models_executed": false,
+  "adapter_weights_in_archive": false
+}

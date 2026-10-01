@@ -1,0 +1,83 @@
+{
+  "experiment_id": "E01",
+  "name": "Numerical evidence with PCA-derived weak supervision",
+  "source_report_zip": "FactorBridge_training_report_20261001T094412_479076Z.zip",
+  "source_report_sha256": "33bd1f479753f2c673843b770da5a31bff2088241c31191e3f60a3dcf846a3bb",
+  "training": {
+    "status": "completed",
+    "signature": "62a6a847870f54dee93a21bf7a7a863213bb8e51310eb4c17449bd4ac87440de",
+    "best_validation_loss": 0.1165259577537654,
+    "steps": 66,
+    "dtype": "torch.bfloat16",
+    "peak_cuda_bytes": 6947307008,
+    "elapsed_seconds": 470.2476180996746,
+    "scientific_success": "not_evaluated"
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "optimizer_steps": 22,
+      "mean_training_loss": 0.3323227902537011,
+      "validation_loss": 0.12412522325757891
+    },
+    {
+      "epoch": 2,
+      "optimizer_steps": 22,
+      "mean_training_loss": 0.08397433397823822,
+      "validation_loss": 0.11779514746012865
+    },
+    {
+      "epoch": 3,
+      "optimizer_steps": 22,
+      "mean_training_loss": 0.08061734824464524,
+      "validation_loss": 0.1165259577537654
+    }
+  ],
+  "label_quality": {
+    "train": {
+      "examples": 352,
+      "decisions": {
+        "retain": 145,
+        "uncertain": 207
+      },
+      "positive_gene_targets": 1161,
+      "axis_flags": {},
+      "sources": {
+        "real_weak_reference": 352
+      },
+      "studies": [
+        "GSE113957",
+        "GSE124109",
+        "GSE132040",
+        "GSE189073",
+        "GSE193258",
+        "GSE255958"
+      ]
+    },
+    "validation": {
+      "examples": 32,
+      "decisions": {
+        "retain": 22,
+        "uncertain": 10
+      },
+      "positive_gene_targets": 180,
+      "axis_flags": {},
+      "sources": {
+        "real_weak_reference": 32
+      },
+      "studies": [
+        "GSE167665",
+        "GSE63577"
+      ]
+    }
+  },
+  "tokenization": {
+    "count": 384,
+    "maximum": 1341,
+    "rejected": [],
+    "truncation": false
+  },
+  "recovery_evaluation": "not_present_in_supplied_report",
+  "internal_data_used": false,
+  "limitation": "Optimization completed; no biological recovery or baseline superiority established"
+}

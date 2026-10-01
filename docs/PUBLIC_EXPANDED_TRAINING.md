@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # 公共数据扩展训练（v2）
 
 用户本轮决定：扩大公共表达数据训练；内部 killifish 保留最终 frozen test；不再重复测试套件或 GPU smoke。模型仍为固定 revision 的 Qwen3-4B-Instruct-2507，沿用已经实测通过的 QLoRA 配置。

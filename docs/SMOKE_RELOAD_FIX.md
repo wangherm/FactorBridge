@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # QLoRA 保存／重载 logits 不一致
 
 AutoDL 的真实 smoke 已完成模型加载、两步优化、adapter 保存和第二次加载，但最终比较失败：`Save/reload logits differ: 1.479004979133606`。这不是 smoke 通过，不能进入正式训练。

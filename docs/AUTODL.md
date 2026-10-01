@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # AutoDL 运行说明
 
 **目前只想做到训练之前：请执行 [训练前准备](BEFORE_TRAINING.md)，不要执行本页的 smoke/train 命令。** 新的公共数据准备入口包含独立 study 划分和 tokenizer 检查；以下是后续完整训练的通用说明。

@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # Hugging Face 不可达时完成训练前检查
 
 网络异常发生在 `tokenizer_check`，应先保留现有 run。无需重新下载表达数据、重新提取候选或再次评估基线；不能把跳过 tokenizer 当作检查通过。

@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # 已通过 GPU runtime 检查后：固定权重与 Qwen smoke
 
 用户实际日志已确认 RTX PRO 6000 Blackwell Server Edition，compute capability 12.0；torch 2.10.0+cu128、Transformers 4.57.6、PEFT 0.18.1、Accelerate 1.12.0、bitsandbytes 0.49.2、huggingface-hub 0.36.2 的基础 BF16/NF4 前后向检查通过。这不是 Qwen 模型 smoke 或正式训练通过记录。

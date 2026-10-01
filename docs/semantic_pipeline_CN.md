@@ -1,3 +1,5 @@
+> 结果更新 2026-10-01：此流程已在 AutoDL 完成。完整语义微调模型对 56 个验证候选全部弃选，尚不建议作为最终恢复器。下面保留复现说明；实际结果见[实验记录](../experiments/README.md)。
+
 # FactorBridge 功能语义实验运行说明
 
 本轮复用已有公共数据转换、study/biological unit/parent factor 分组、数值候选、completion-only Qwen QLoRA、保存重载检查、W/Z 重估与独立研究评估。旧目录不覆盖。内部 killifish 不进入此入口。

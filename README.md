@@ -1,90 +1,72 @@
 # FactorBridge
 
-本轮公共数据扩展与直接训练入口见 [PUBLIC_EXPANDED_TRAINING.md](docs/PUBLIC_EXPANDED_TRAINING.md)：复用实际通过的 GPU smoke，公共研究按 train/validation 分组，内部 killifish 留作最终 frozen test。全目录下载与可训练数据纳入状态分开报告。
+从嘈杂基因表达数据中恢复可复核的表达因子，研究功能语义是否能改善数值恢复。
 
-从 noisy expression 中恢复可复核的 biological factors，并研究跨物种 factor identity。
+An experimental framework for evidence-guided expression factor recovery and programme analysis.
 
-**当前状态：工程实现、受控模拟测试与真实公共数据的训练前准备；没有执行真实 Qwen GPU 训练，也没有已训练 adapter 或生物学增益结论。**
+**截至 2026-10-01：两轮真实 Qwen QLoRA 训练已完成。第二轮完整评估发现，带功能语义的微调模型对验证集 56 个候选全部弃选；尚未证明优于数值基线。当前版本作为可复现的研究试验归档，不是已验证的生物学预测系统。**
 
-本仓库按 2026-09-30 的交接要求启动。用户随后明确增加了第二阶段和多教师对比/蒸馏；因此当前范围是 Stage 1 + Stage 2。跨平台、跨分辨率训练、统一 graph、RL、agent、自动教师路由均不实现。
+## 从哪里开始
 
-## Stage 1
+| 阅读目的 | 入口 |
+| --- | --- |
+| 和计算机方向合作者讨论问题、方法和结果 | [项目说明](docs/PROJECT_DESCRIPTION_CN.md) |
+| 查看两轮训练、对照结果和失败证据 | [实验记录](experiments/README.md) |
+| 区分已执行、仅实现和待研究部分 | [项目状态与讨论决策](docs/PROJECT_STATUS.md) |
+| 理解文件、矩阵与分组要求 | [数据契约](docs/DATA_CONTRACT.md) |
+| 复现第二轮实验 | [语义流程运行说明](docs/semantic_pipeline_CN.md) |
+| 找到旧版下载、环境排错和训练命令 | [文档索引](docs/README.md) |
 
-`数值候选 → noisy-only Candidate Evidence Card → Qwen 结构化选择 → noisy X 上 support-restricted PCA → W/Z → 独立评估`
+## 核心任务
 
-- PCA rank 受有效 biological-unit 数量和矩阵秩限制；保留正负 loading。
-- bootstrap 按完整 unit 抽样。study、parent dataset、parent factor 和 biological units 不跨 split。
-- counts 才允许 binomial thinning；log expression 使用明确的加性噪声。missing features 用 mask 排除。
-- 受控模拟真值或真实数据的稳定性弱参考提供监督。真实未确认基因不作为 non-LLM selector 的可靠负例。
-- `retain / uncertain / reject_null`、当前可见 gene slots、混杂 axis flags、合法 evidence IDs；不预测 pathway 名称。
-- completion-only loss；超长样本明确失败；不截断答案，不静默丢弃，不用 Qwen 自举答案造 gold。
-- raw PCA 为独立原始诊断；loading-refit、stability、non-LLM、frozen Qwen、finetuned Qwen 共用相同数值重估器。
-- 输出 full-gene W、discovery/held-out Z、support/missing masks、中心化参数、Factor Cards。
-- sign/permutation-aware 计分、子空间覆盖、null/technical 假阳性、abstention、invalid rate、支持集、噪声曲线、按 study 重采样的区间。
-- 报告候选可表示的支持覆盖上限，以及真值支持集交集的 oracle-refit 对照。后者是可达到的参考值，**不是对所有可能支持子集的数学上界**。
+输入为样本 × 基因的表达矩阵 X，以及物种、测量平台和 biological unit 元数据。输出为基因 × 因子的 loadings W、样本 × 因子的 scores Z、支持基因、证据、稳定性与不确定性。
 
-## Stage 2 与多教师
+```text
+noisy X → 数值候选及分组 bootstrap → Candidate Evidence Card
+        → Qwen 结构化选择 → 在同一个 noisy X 上数值重估 → W/Z 与独立评估
+```
 
-Stage 1 adapter 完成并通过 GPU smoke test 后，才继续跨物种 SFT。每次追加训练保留恢复任务 replay，并重测 Stage 1 的公开 validation W/Z 恢复。
+第二轮增加 NCBI/Reactome 功能注释、noisy-only 富集、受限子模块候选，以及 programme 分数、功能对应候选和时间分析。LLM 选择支持集合；实际 W/Z 由数值方法估计。稳定表达方向、功能解释和因果生物机制是不同层次的结论。
 
-- 默认先比较 ESM2 protein-token prior、UCE contextual factor vectors、无蒸馏学生、各单教师学生、固定权重多教师学生。
-- ESM2 是 UCE 使用的蛋白/基因表示基础；两者不是独立生物证据。ESM2 pooling 不等于完整 UCE 推理。
-- contextual teacher 必须先通过其官方实现对**同一 noisy 输入**运行。仓库提供有来源/哈希检查的导入和 factor-vector 导出；不内置或假装执行 UCE/SATURN/scGPT 的训练代码。
-- 其他模型可按同一真实 embedding 契约加入独立 `teacher_id`；必须记录 checkpoint、revision、物种暴露情况和输入 assay。没有合适权重/输入就明确阻断。
-- 多教师各自保留一个辅助回归头：`SFT biological-label loss + λ × fixed-weight teacher-similarity MSE`。回归读取 **最后一个 prompt token** 的隐状态，不读取答案位置；教师数值也从模型 prompt 中移除。
-- 教师输出只监督辅助损失。`shared / partially_shared / unmatched / uncertain` 的主任务标签来自受控真值或带来源的 curated weak reference。
-- 同时按 species、study、unit、parent factor、programme family 分组。Stage 1 replay 不得包含 Stage 2 的 held-out species。
-- pair 比较先控制 assay/resolution；基于 sign-invariant 表示，不把 PCA 符号翻转叫 biological reversal。
-- 只在公开 validation 上选择实验，且检查恢复退化与无效输出率。可按 species pair / relation 看各教师的强项，不建立自动 router。
+## 已观察到的结果
 
-## 快速使用
+公共数据实际纳入 8 个研究、24 个数据面板、1,371 个样本；6 个研究用于训练、2 个用于验证。组织面板和噪声版本不算独立研究。内部 killifish 保持 frozen test，未使用。
 
-已完成单研究 pilot、准备下一步时，请用 [训练前准备](docs/BEFORE_TRAINING.md)：下载三个独立 study、固定 train/validation/reserved-test、生成弱监督 SFT、检查实际 Qwen tokenizer，并在模型加载与训练之前停止。该批只有小规模真实弱参考，不能作为完整混杂识别或跨物种训练集。
+| 实验 | 训练卡 / 验证卡 | 真实执行 | 结论 |
+| --- | ---: | --- | --- |
+| E01 数值弱监督 | 352 / 32 | 3 epochs，66 steps | 优化完成；所提供报告未包含该 adapter 的独立恢复评估 |
+| E02 功能语义弱监督 | 542 / 56 | 3 epochs，102 steps，九项对照 | 完整语义微调模型 56/56 uncertain；对应 W 为零列 |
 
-首次在 AutoDL/JupyterLab 获取代码，或先下载真实公共数据，请从 [公共数据起步](docs/PUBLIC_PILOT.md) 开始。仓库已公开，HTTPS clone/pull 无需账号或密码。已提供经过文件哈希校验的 GSE124109 下载/转换脚本，以及明确隔离的单研究数值试跑。
+E02 的当前弱参考恢复率：loading refit 与稳定性均为 41.7%，未微调 Qwen 为 8.3%，完整语义微调 Qwen 为 0%。去掉语义后同一 adapter 恢复率为 41.7%，但其 52 个 retain 中有 50 个选了全部可见基因。该消融不能证明模型学会了语义推理。
 
-在仓库根目录运行，Python 3.10+。核心数值测试只需要 NumPy：
+新增的 190 个 programme 训练候选全部被旧 PCA 弱参考标成 uncertain；单个研究占 78.2% 的训练卡。下一步优先重审监督目标、研究均衡和 checkpoint 选择，而不是直接增加训练规模。详见[实验分析](experiments/README.md)。
+
+## 代码导航
+
+| 模块 | 职责 |
+| --- | --- |
+| `data.py`、`benchmark.py`、`factors.py` | 数据审计、分组、候选、弱参考和数值重估 |
+| `contracts.py`、`llm.py`、`selectors.py` | 可见证据契约、QLoRA、非 LLM 对照 |
+| `semantic.py`、`programmes.py` | 功能证据、programme 分数、时间与偏离分析 |
+| `evaluate.py`、`recovery.py` | 对照评估、W/Z 输出、新公共数据恢复 |
+| `cross_species.py`、`distill.py` | 配对/教师导入/辅助损失；两轮报告均未执行外部教师训练 |
+| `scripts/`、`configs/`、`tests/` | 运行入口、配置与工程检查 |
+
+原代码路径保留，避免破坏 AutoDL 命令和旧运行的溯源。外层 agent 只有函数接口；外部世界模型、强化学习、跨平台统一模型和统一 factor graph 均未运行。
+
+## 复现与结果保护
 
 ```bash
 python -m pip install -e .
 python -m unittest discover -s tests -v
-python -m factorbridge environment --config configs/stage1.json
 ```
 
-AutoDL 运行顺序、真实数据 manifest、单卡训练和 Stage 2 操作见 [AutoDL 说明](docs/AUTODL.md) 和 [数据契约](docs/DATA_CONTRACT.md)。
+GPU 依赖、实际数据和权重需要另外配置。默认配置文件不是已下载数据清单。第二轮入口为 `scripts/run_semantic_pipeline.sh <source-config>`，用于复现已归档方案；现有 adapter 不建议直接作为最终恢复器。
 
-`configs/stage1.json` / `stage2.json` 是待填数据路径的配置，**不是可用数据清单**。默认 manifest 不存在时应当失败。没有假数据自动回退。
+每次运行使用新目录。输入卡不能含 clean reference、目标标签或测试结果；原始参考与标签放在 private sidecar。study、biological unit、parent factor 及其所有噪声版本不跨 split。没有数据或依赖时明确失败，不使用假数据回退。
 
-独立、明确标记的模拟工程验收：
+公开仓库只保存代码、文档和经过整理的实验摘要。原始表达矩阵、完整运行包、adapter 权重和内部数据保留在本地/AutoDL；摘要记录源包哈希，可回查证据。
 
-```bash
-python scripts/run_simulation_check.py --destination runs/engineering_check
-```
+## 归档
 
-这会实际产生模拟 W/Z、Factor Cards、基线报告、噪声/coverage-error 数据；不会加载或微调 Qwen，不证明真实生物学有效。
-
-## 输出与冻结
-
-每次实验使用新的 `run_dir`；prepared/evaluation/training 不覆盖旧结果。`commands.jsonl` 记录真实命令、时间、失败与错误。
-
-`prepared/cards.jsonl` 只含候选可见证据；`prepared/private/` 单独存 reference、labels、lineage 和矩阵。SFT 的 prompt-completion 导出另存 `sft/`。文件中的 `example_id` 仅用于 join，不进入 prompt。
-
-GPU `smoke` 必须实际完成加载、前后向、优化、保存、重载和 logits 比对后，`train` 才能运行。训练过程中和结束后保存真实环境、resolved dependency lock、模型 SHA、adapter、tokenizer、chat template、loss、显存峰值与训练参数清单。
-
-`freeze` 固定规则、代码和模型/基线哈希；之后才能打开 public test。内部 killifish 从始至终保持 `internal_test`，只允许冻结后的局部无监督恢复，不提供训练入口。内部测试结论不能回调全局规则。
-
-无 CUDA、数据、权重、独立标签或教师 embedding 时明确失败。不要把工程测试结果、模拟标签一致性、真实弱参考一致性叫作“恢复了真实因果因子”。
-
-## 官方技术依据
-
-- [Qwen3-4B-Instruct-2507](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)
-- [PEFT quantization](https://huggingface.co/docs/peft/developer_guides/quantization)
-- [UCE 官方实现与输入要求](https://github.com/snap-stanford/UCE)
-
-训练采用 Transformers + PEFT 的显式 SFT 循环，以便直接验证 loss mask 与多教师辅助损失；没有引入 TRL/RL 的额外训练流程。依赖区间是安装约束；实际兼容版本只有 AutoDL smoke 完成后生成的 `requirements.resolved.txt` 才算已验证。
-
-## 功能语义实验（2026-10-01）
-
-新入口 `scripts/run_semantic_pipeline.sh <已完成公共数据训练的config.json>`：官方功能注释、noisy-only 功能候选与富集证据、Qwen QLoRA、同流程 W/Z 重估、九项对照、programme 分数、跨物种功能对应候选，以及按未来时间留出的进程/偏离与状态转移基线。复用已有公共 manifest；内部 killifish 不参与；外层 agent 仅提供函数接口。
-
-完整启动命令、输入/输出、科学限制和世界模型参考见 [运行说明](docs/semantic_pipeline_CN.md)。此版本的发布不表示 AutoDL 新一轮训练已执行或模型已优于基线。
+本次归档说明见 [2026-10-01 归档索引](docs/archive/2026-10-01.md)。仓库继续可编辑，旧实验结果作为历史证据保留，不因后续修改而重写。

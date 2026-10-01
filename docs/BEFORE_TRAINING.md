@@ -1,3 +1,5 @@
+> 历史操作说明。当前实际训练与评估结论见[实验记录](../experiments/README.md)，文档导航见[索引](README.md)。
+
 # 下一步：公共数据准备，到 Qwen 训练之前停止
 
 已跑过 GSE124109 单研究 pilot 后，执行本页。新流程复用原有 candidate/card/refit/evaluate 实现，建立独立 study 的训练、验证和预留测试集。它只完成 **Stage 1 的小规模真实弱监督准备**；不加载 Qwen 权重、不做 GPU smoke、不微调、不运行跨物种教师，也不冻结或评估测试集。
